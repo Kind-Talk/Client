@@ -1,4 +1,4 @@
-import 'package:front_end/features/auth/views/utils/index.dart';
+import 'package:front_end/features/auth/utils/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -152,8 +152,9 @@ class AuthSocialButton extends StatelessWidget {
 // 로그인, 회원가입 버튼
 class AuthSignButton extends StatelessWidget {
   final String text;
+  final VoidCallback onTap;
 
-  const AuthSignButton({super.key, required this.text});
+  const AuthSignButton({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +162,7 @@ class AuthSignButton extends StatelessWidget {
       width: double.infinity,
       height: 36.h,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF2F7D4E),
           shape: RoundedRectangleBorder(
