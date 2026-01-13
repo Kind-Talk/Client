@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:front_end/features/auth/views/utils/index.dart';
+import 'package:front_end/features/auth/utils/index.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -20,7 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFDF8E9),
+      backgroundColor: const Color(AppConstants.backgroundColor),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -78,7 +78,18 @@ class _SignupScreenState extends State<SignupScreen> {
                       SizedBox(height: 33.94.h),
 
                       // 회원가입 버튼
-                      const AuthSignButton(text: '회원가입'),
+                      AuthSignButton(
+                        text: '회원가입',
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),

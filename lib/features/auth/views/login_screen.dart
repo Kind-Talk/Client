@@ -1,5 +1,4 @@
-import 'package:front_end/features/auth/views/utils/index.dart';
-import 'package:front_end/features/auth/views/signup_screen.dart';
+import 'package:front_end/features/auth/utils/index.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFDF8E9),
+      backgroundColor: const Color(AppConstants.backgroundColor),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -119,7 +118,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: 15.99.h),
 
                       // 로그인 버튼
-                      const AuthSignButton(text: '로그인'),
+                      AuthSignButton(
+                        text: '로그인',
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomeScreen(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                      ),
 
                       SizedBox(height: 15.99.h),
 
