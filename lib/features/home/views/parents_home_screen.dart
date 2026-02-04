@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:front_end/features/chat/views/chat_screen.dart';
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -73,7 +74,7 @@ class ChatContentWidget extends StatelessWidget {
           SizedBox(height: 16.h),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,12 +104,12 @@ class ChatContentWidget extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 12.h),
+                SizedBox(height: 16.h),
 
                 // 선생님 리스트
                 Column(
                   children: [
-                    const TeacherCard(
+                    TeacherCard(
                       name: "김영희 선생님",
                       studentCount: 20,
                       schoolInfo: "000 초등학교 0학년 0반",
@@ -117,9 +118,21 @@ class ChatContentWidget extends StatelessWidget {
                       lastQuestion: "선생님 ~ 이번주 숙제 알 수 있을까요?",
                       time: "1시간 전",
                       unreadColor: 0xFF2F7D4E,
+
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChatRoomScreen(
+                              teacherName: "김영희 선생님",
+                              schoolName: "000 초등학교",
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                    SizedBox(height: 12.h),
-                    const TeacherCard(
+                    SizedBox(height: 16.h),
+                    TeacherCard(
                       name: "김영희 선생님",
                       studentCount: 20,
                       schoolInfo: "000 초등학교 0학년 0반",
@@ -128,8 +141,19 @@ class ChatContentWidget extends StatelessWidget {
                       lastQuestion: "선생님 ~ 이번주 숙제 알 수 있을까요?",
                       time: "1시간 전",
                       unreadColor: 0xFF2F7D4E,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChatRoomScreen(
+                              teacherName: "김영희 선생님",
+                              schoolName: "000 초등학교",
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                    SizedBox(height: 12.h),
+                    SizedBox(height: 16.h),
                   ],
                 ),
               ],
