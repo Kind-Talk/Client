@@ -3,8 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 
 // 주제별 정리 위젯
-class TopicSection extends StatelessWidget {
+class TopicSection extends StatefulWidget {
   const TopicSection({super.key});
+
+  @override
+  State<TopicSection> createState() => _TopicSectionState();
+}
+
+class _TopicSectionState extends State<TopicSection> {
+  bool _isExpanded = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,45 +35,67 @@ class TopicSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      "스레드 펼치기",
-                      style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isExpanded = !_isExpanded;
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            _isExpanded ? "스레드 숨기기" : "스레드 보기",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                          Icon(
+                            _isExpanded
+                                ? Icons.keyboard_arrow_up
+                                : Icons.keyboard_arrow_down,
+                            color: Colors.grey,
+                            size: 16.w,
+                          ),
+                        ],
+                      ),
                     ),
-                    Icon(Icons.chevron_right, color: Colors.grey, size: 16.w),
                   ],
                 ),
               ],
             ),
           ),
           SizedBox(height: 10.h),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                SizedBox(width: 16.w),
-                const TopicCard(
-                  title: "숙제 관련",
-                  preview: "선생님 이번 주 숙제 알 수 있을까요?",
-                  time: "2시간 전",
-                ),
-                SizedBox(width: 16.w),
-                const TopicCard(
-                  title: "방학 관련",
-                  preview: "선생님 ~ 이번 방학 기간이 ... ",
-                  time: "5시간 전",
-                ),
-              ],
-            ),
-          ),
 
-          SizedBox(height: 29.h),
-          Padding(
-            padding: EdgeInsets.only(left: 16.w, bottom: 25.h),
-            child: Text(
-              "스레드 전체 확인하기",
-              style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+          if (_isExpanded)
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(width: 16.w),
+                  const TopicCard(
+                    title: "숙제 관련",
+                    preview: "선생님 이번 주 숙제 알 수 있을까요?",
+                    time: "2시간 전",
+                  ),
+                  SizedBox(width: 16.w),
+                  const TopicCard(
+                    title: "방학 관련",
+                    preview: "선생님 ~ 이번 방학 기간이 ... ",
+                    time: "5시간 전",
+                  ),
+                ],
+              ),
             ),
-          ),
+
+          if (_isExpanded)
+            Padding(
+              padding: EdgeInsets.only(left: 16.w, bottom: 25.h, top: 29.h),
+              child: Text(
+                _isExpanded ? "스레드 전체 확인하기" : "",
+                style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+              ),
+            ),
         ],
       ),
     );
