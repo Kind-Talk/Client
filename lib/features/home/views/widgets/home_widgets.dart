@@ -171,6 +171,8 @@ class TeacherCard extends StatelessWidget {
   final String time;
   final int unreadColor;
 
+  final VoidCallback? onTap;
+
   const TeacherCard({
     super.key,
     required this.name,
@@ -181,98 +183,102 @@ class TeacherCard extends StatelessWidget {
     required this.lastQuestion,
     required this.time,
     required this.unreadColor,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(21.w),
-      decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 이름 및 뱃지
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(color: Colors.black, fontSize: 16.sp),
-                  children: [
-                    TextSpan(
-                      text: name,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    TextSpan(
-                      text: ' ($studentCount)',
-                      style: TextStyle(color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-              ),
-              if (unreadCount > 0)
-                Container(
-                  padding: EdgeInsets.all(7.7.w),
-                  decoration: BoxDecoration(
-                    color: Color(unreadColor),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text(
-                    unreadCount.toString(),
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-            ],
-          ),
-
-          SizedBox(height: 4.h),
-
-          // 학교 정보
-          Text(
-            schoolInfo,
-            style: TextStyle(color: Colors.grey[500], fontSize: 14.sp),
-          ),
-
-          if (statusMessage.isNotEmpty) ...[
-            SizedBox(height: 13.h),
-            Text(
-              statusMessage,
-              style: TextStyle(color: Colors.grey[600], fontSize: 14.sp),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(21.w),
+        decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(16.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 2),
             ),
           ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 이름 및 뱃지
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                    children: [
+                      TextSpan(
+                        text: name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: ' ($studentCount)',
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
+                    ],
+                  ),
+                ),
+                if (unreadCount > 0)
+                  Container(
+                    padding: EdgeInsets.all(7.7.w),
+                    decoration: BoxDecoration(
+                      color: Color(unreadColor),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      unreadCount.toString(),
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
 
-          SizedBox(height: 12.h),
-          const Divider(thickness: 0.5),
-          SizedBox(height: 12.h),
+            SizedBox(height: 4.h),
 
-          // 최근 질문 내용
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                CupertinoIcons.bubble_left,
-                size: 16.w,
-                color: Colors.grey[400],
+            // 학교 정보
+            Text(
+              schoolInfo,
+              style: TextStyle(color: Colors.grey[500], fontSize: 14.sp),
+            ),
+
+            if (statusMessage.isNotEmpty) ...[
+              SizedBox(height: 13.h),
+              Text(
+                statusMessage,
+                style: TextStyle(color: Colors.grey[600], fontSize: 14.sp),
               ),
-              SizedBox(width: 8.w),
-              Expanded(child: columnForQuestion()),
             ],
-          ),
-        ],
+
+            SizedBox(height: 12.h),
+            const Divider(thickness: 0.5),
+            SizedBox(height: 12.h),
+
+            // 최근 질문 내용
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  CupertinoIcons.bubble_left,
+                  size: 16.w,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(width: 8.w),
+                Expanded(child: columnForQuestion()),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
