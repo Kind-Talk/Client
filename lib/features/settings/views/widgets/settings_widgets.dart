@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/cupertino.dart';
 
 ////////////// STATEFUL WIDGETS ///////////////////
 
@@ -40,15 +41,18 @@ class _RoleToggleButtonState extends State<RoleToggleButton> {
             
             // 교사-학부모 전환 스위치
             Container(
-              child: Switch(
+              child: CupertinoSwitch(
                 value: isSwitched, 
                 onChanged: (value) {
                   setState(() {
                     isSwitched = value;
                   });
                 },
-                activeThumbColor: Colors.blueAccent, // 임시
-                inactiveThumbColor: Colors.redAccent, // 임시
+                ///// 임시 색 부여 ////////
+                // Teacher mode
+                activeTrackColor: Colors.blueAccent,
+                // Parents mode
+                inactiveTrackColor: Colors.redAccent,
               ),
             ),
           ],
