@@ -10,37 +10,27 @@ class SettingsScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          Header(),
+
+          RoleToggleButton(),
+
           Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.03),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
+            width: 393.w,
+            height: 450.h,
             child: Column(
               children: [
-                Text('설정')
+                PersonalInfo(),
+
+                SizedBox(height: 16.h),
+
+                SchoolInfo(),
+
+                SizedBox(height: 16.h),
+
+                SignOut(),
               ],
             ),
           ),
-
-          SizedBox(height: 16.h),
-
-          PersonalInfo(),
-
-          SizedBox(height: 16.h),
-
-          SchoolInfo(),
-
-          SizedBox(height: 16.h),
-
-          SignOut(),
-
         ],
       )
     );
