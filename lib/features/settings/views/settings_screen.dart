@@ -12,13 +12,20 @@ class SettingsScreen extends StatelessWidget {
         children: [
           Header(),
 
-          RoleToggleButton(),
-
           Container(
             width: 393.w,
             height: 450.h,
+            // Uncomment it for visualize Container area
+            // decoration: BoxDecoration(
+            //   border: Border.all(
+            //     color: Colors.black,
+            //     width: 1.sp,
+            //   )
+            // ),
             child: Column(
               children: [
+                RoleToggleButton(),
+
                 PersonalInfo(),
 
                 SizedBox(height: 16.h),
@@ -31,6 +38,8 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
+          
+          Versions(),
         ],
       )
     );

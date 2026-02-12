@@ -296,3 +296,23 @@ class SignOut extends StatelessWidget {
     );
   }
 }
+
+// 버전 표시
+class Versions extends StatelessWidget {
+  const Versions({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20.h,
+      child: Text(
+        '버전 1.0.0',
+        style: TextStyle(
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w400,
+          color: Color(0xFF717182)
+        ),
+      ),
+    );
+  }
+}
