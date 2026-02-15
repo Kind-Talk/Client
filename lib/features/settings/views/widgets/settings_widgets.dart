@@ -62,7 +62,9 @@ class _RoleToggleButtonState extends State<RoleToggleButton> {
   }
 }
 
-//////// STATELESS WIDGETS //////////////
+////////////// STATELESS WIDGETS ///////////////////
+
+//////// COMMON ///////////
 
 // 설정 헤더
 class Header extends StatelessWidget {
@@ -170,6 +172,82 @@ class PersonalInfo extends StatelessWidget {
   }
 }
 
+// 로그아웃
+class SignOut extends StatelessWidget {
+  const SignOut({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
+
+      decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(16.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.all(8.w),
+
+            decoration: BoxDecoration(
+              color: Color(0xFFFFE2E2),
+              shape: BoxShape.circle,
+            ),
+
+            child: SvgPicture.asset('assets/icons/sign_out.svg', width: 20, height: 20),
+          ),
+
+          SizedBox(width: 16.h),
+
+          Expanded(
+            child: Container(
+              child: Text(
+                '로그아웃',
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFFE7000B),
+                ),
+              ),
+            ),
+          ),
+        ],
+      )
+    );
+  }
+}
+
+// 버전 표시
+class Versions extends StatelessWidget {
+  const Versions({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20.h,
+      child: Text(
+        '버전 1.0.0',
+        style: TextStyle(
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w400,
+          color: Color(0xFF717182)
+        ),
+      ),
+    );
+  }
+}
+
+//////// TEACHER ///////////
 // 학교 설정 변경
 class SchoolInfo extends StatelessWidget {
   const SchoolInfo({super.key});
@@ -199,7 +277,7 @@ class SchoolInfo extends StatelessWidget {
 
             decoration: BoxDecoration(
               color: Color(0xFFF3F4F6),
-              borderRadius: BorderRadius.circular(18.r)
+              shape: BoxShape.circle,
             ),
 
             child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
@@ -242,9 +320,10 @@ class SchoolInfo extends StatelessWidget {
   }
 }
 
-// 로그아웃
-class SignOut extends StatelessWidget {
-  const SignOut({super.key});
+//////// PARENT ///////////
+// 자녀 추가
+class AddStudent extends StatelessWidget {
+  const AddStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -254,7 +333,10 @@ class SignOut extends StatelessWidget {
 
       decoration: BoxDecoration(
           color: Color(0xFFFFFFFF),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16.r),
+            topRight: Radius.circular(16.r)
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.05),
@@ -270,49 +352,121 @@ class SignOut extends StatelessWidget {
             padding: EdgeInsets.all(8.w),
 
             decoration: BoxDecoration(
-              color: Color(0xFFFFE2E2),
-              borderRadius: BorderRadius.circular(18.r)
+              color: Color(0xFFF3F4F6),
+              shape: BoxShape.circle,
             ),
 
-            child: SvgPicture.asset('assets/icons/sign_out.svg', width: 20, height: 20),
+            child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
           ),
 
           SizedBox(width: 16.h),
 
-          Expanded(
-            child: Container(
-              child: Text(
-                '로그아웃',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFFE7000B),
+          Container(
+            width: 240.w,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '자녀 추가',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF0A0A0A),
+                  ),
                 ),
-              ),
+
+                Text(
+                  '새로운 자녀 추가',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF717182),
+                  ),
+                )
+              ],
             ),
           ),
+
+          SizedBox(width: 16.h),
+
+          SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
         ],
       )
     );
   }
 }
 
-// 버전 표시
-class Versions extends StatelessWidget {
-  const Versions({super.key});
+// 자녀 정보 확인
+class StudentInfo extends StatelessWidget {
+  const StudentInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 20.h,
-      child: Text(
-        '버전 1.0.0',
-        style: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: Color(0xFF717182)
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
+
+      decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(16.r),
+            bottomRight: Radius.circular(16.r)
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-      ),
+
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.all(8.w),
+
+            decoration: BoxDecoration(
+              color: Color(0xFFF3F4F6),
+              shape: BoxShape.circle,
+            ),
+
+            child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
+          ),
+
+          SizedBox(width: 16.h),
+
+          Container(
+            width: 240.w,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '자녀 정보 확인',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF0A0A0A),
+                  ),
+                ),
+
+                Text(
+                  '자녀 정보 관리',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF717182),
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          SizedBox(width: 16.h),
+
+          SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
+        ],
+      )
     );
   }
 }

@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
+import 'package:front_end/features/settings/views/widgets/parent_settings_body.dart';
+import 'package:front_end/features/settings/views/widgets/teacher_settings_body.dart';
 
-class SettingsScreen extends StatelessWidget {
+enum Usermode { teacher, parent }
+
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  Usermode _mode = Usermode.teacher;
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +26,6 @@ class SettingsScreen extends StatelessWidget {
           Container(
             width: 393.w,
             height: 450.h,
-            // Uncomment it for visualize Container area
-            // decoration: BoxDecoration(
-            //   border: Border.all(
-            //     color: Colors.black,
-            //     width: 1.sp,
-            //   )
-            // ),
             child: Column(
               children: [
                 RoleToggleButton(),
@@ -30,7 +34,7 @@ class SettingsScreen extends StatelessWidget {
 
                 SizedBox(height: 16.h),
 
-                SchoolInfo(),
+                _mode == Usermode.teacher? TeacherSettingsBody() : ParentSettingsBody(),
 
                 SizedBox(height: 16.h),
 
