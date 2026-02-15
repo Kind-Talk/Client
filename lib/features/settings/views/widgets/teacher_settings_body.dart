@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
 
 class TeacherSettingsBody extends StatelessWidget {
