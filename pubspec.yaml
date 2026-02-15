@@ -7,8 +7,10 @@ environment:
   sdk: ^3.10.1
 
 dependencies:
+  flutter_screenutil: ^5.9.3
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
