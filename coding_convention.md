@@ -1,6 +1,5 @@
 # CODING CONVENTION
-
-=====================================================================
+*This is a fundamental guideline when working on codes in Kind-Talk/Client repository.*
 
 ## Naming Guideline
 ✅ **Variables:** Use desctiptive, intuitive names in `camelCase`.
@@ -16,14 +15,12 @@
 - For each screen page, file name ends with `xx_xx_screen.dart`.
 - Make sure to create two distinct files for parent/teacher widgets.
 
-=====================================================================
 
 ## Formatting / Structures
 **Indentation:** Indent each level with 2 spaces.
 
 **Whitespace:** Use whitespace to improve clarity and readability, and to separate logics.
 
-=====================================================================
 
 ## Documentations / Comments
 **Code Documentation:** Document all public modules, functions, packages, and any other necessary sources.
