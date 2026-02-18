@@ -1,4 +1,4 @@
-<h1 style="font-family: Times">CODING CONVENTION</h1>
+# CODING CONVENTION 
 *This is a fundamental guideline when working on codes in <strong>Kind-Talk/Client</strong> repository.*
 
 ## Naming Guideline
@@ -17,15 +17,15 @@
 
 
 ## Formatting / Structures
-**Indentation:** Indent each level with 2 spaces.
+✅ **Indentation:** Indent each level with 2 spaces.
 
-**Whitespace:** Use whitespace to improve clarity and readability, and to separate logics.
+✅ **Whitespace:** Use whitespace to improve clarity and readability, and to separate logics.
 
 
 ## Documentations / Comments
-**Code Documentation:** Document all public modules, functions, packages, and any other necessary sources.
+✅ **Code Documentation:** Document all public modules, functions, packages, and any other necessary sources.
 
-**Usage of Comments:**
+✅ **Usage of Comments:**
 - Separate Stateful Widgets and Stateless Widgets as followed:
     >e.g. `======== STATEFUL WIDGETS ========`
 - Classes - Leave a comment above the class to clarify which class it is.
