@@ -14,7 +14,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  Usermode _mode = Usermode.teacher;
+  Usermode _mode = Usermode.parent;
 
   @override
   Widget build(BuildContext context) {

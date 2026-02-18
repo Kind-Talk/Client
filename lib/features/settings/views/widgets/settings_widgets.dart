@@ -7,8 +7,7 @@ import 'package:front_end/features/settings/views/personal_info_screen.dart';
 import 'package:front_end/features/settings/views/school_info_screen.dart';
 import 'package:front_end/features/settings/views/student_info_screen.dart';
 
-////////////// STATEFUL WIDGETS ///////////////////
-
+// ======== STATEFUL WIDGETS ========
 // 교사-학부모 전환 스위치
 class RoleToggleButton extends StatefulWidget {
   const RoleToggleButton({super.key});
@@ -66,10 +65,8 @@ class _RoleToggleButtonState extends State<RoleToggleButton> {
   }
 }
 
-////////////// STATELESS WIDGETS ///////////////////
-
-//////// COMMON ///////////
-
+// ======== STATELESS WIDGETS ========
+// ------ COMMON ------
 // 설정 헤더
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -261,7 +258,7 @@ class Versions extends StatelessWidget {
   }
 }
 
-//////// TEACHER ///////////
+// ------ TEACHER ------
 // 학교 설정 변경
 class SchoolInfo extends StatelessWidget {
   const SchoolInfo({super.key});
@@ -345,7 +342,7 @@ class SchoolInfo extends StatelessWidget {
   }
 }
 
-//////// PARENT ///////////
+// ------ PARENT ------
 // 자녀 추가
 class AddStudent extends StatelessWidget {
   const AddStudent({super.key});
