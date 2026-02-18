@@ -1,5 +1,5 @@
 # CODING CONVENTION
-*This is a fundamental guideline when working on codes in Kind-Talk/Client repository.*
+*This is a fundamental guideline when working on codes in <strong>Kind-Talk/Client<strong> repository.*
 
 ## Naming Guideline
 ✅ **Variables:** Use desctiptive, intuitive names in `camelCase`.
@@ -27,7 +27,7 @@
 
 **Usage of Comments:**
 - Separate Stateful Widgets and Stateless Widgets as followed:
-    e.g. `======== This Comments ========`
+    >e.g. `======== This Comments ========`
 - Classes - Leave a comment above the class to clarify which class it is.
 - Use comments for explaining complicatd logics.
 - Use comments for clarifying ambiguous expressions, names, etc.
