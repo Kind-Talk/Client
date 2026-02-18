@@ -1,4 +1,4 @@
-# CODING CONVENTION
+<h1 style="font-family: Times">CODING CONVENTION</h1>
 *This is a fundamental guideline when working on codes in <strong>Kind-Talk/Client</strong> repository.*
 
 ## Naming Guideline
