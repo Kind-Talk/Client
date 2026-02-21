@@ -14,7 +14,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  Usermode _mode = Usermode.parent;
+  Usermode _mode = Usermode.parent; // 임시로 하드 코딩 -> 유저 정보에서 받아와야 함.
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
 
 class PersonalInfoScreen extends StatefulWidget {
   const PersonalInfoScreen({super.key});
@@ -10,6 +11,19 @@ class PersonalInfoScreen extends StatefulWidget {
 class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            children: [
+              Header(),
+
+              Text("개인 설정 페이지")
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
