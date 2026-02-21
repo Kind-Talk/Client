@@ -1,6 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ======== STATELESS WIDGETS ========
+// 자녀 추가 헤더
+class AddStudentHeader extends StatelessWidget {
+  const AddStudentHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 56.h,
+      padding: EdgeInsets.all(16.h),
+
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+
+      child: Row(
+        children: [
+          Text("icon"),
+
+          Text(
+            '설정',
+            style: TextStyle(
+              fontSize: 16.h,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF1C4B2F),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// 자녀 추가 정보 탭
+class AddStudentInfoTab extends StatelessWidget {
+  const AddStudentInfoTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text("icon"),
+
+            Text("자녀 정보 입력"),
+          ],
+        ),
+
+        Text("자녀의 학교, 생년월일, 이름을 정확히 입력해주세요"),
+      ],
+    );
+  }
+}
+
 // 이름 정보 입력
 class GetName extends StatelessWidget {
   const GetName({super.key});
@@ -68,8 +131,8 @@ class GetSchool extends StatelessWidget {
 }
 
 // 자녀 추가하기 버튼
-class AddStudent extends StatelessWidget {
-  const AddStudent({super.key});
+class AddStudentButton extends StatelessWidget {
+  const AddStudentButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +143,8 @@ class AddStudent extends StatelessWidget {
 }
 
 // 취소 버튼
-class Cancel extends StatelessWidget {
-  const Cancel({super.key});
+class CancelButton extends StatelessWidget {
+  const CancelButton({super.key});
 
   @override
   Widget build(BuildContext context) {

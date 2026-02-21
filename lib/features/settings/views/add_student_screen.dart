@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
+import 'package:front_end/features/settings/views/widgets/add_student_widgets.dart';
 
 class AddStudentScreen extends StatefulWidget {
   const AddStudentScreen({super.key});
@@ -14,14 +14,22 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              Header(),
+        child: Column(
+          children: [
+            AddStudentHeader(),
 
-              Text("자녀 추가")
-            ],
-          ),
+            AddStudentInfoTab(),
+
+            GetName(),
+
+            GetBirthDate(),
+
+            GetSchool(),
+
+            AddStudentButton(),
+
+            CancelButton(),
+          ],
         ),
       ),
     );
