@@ -48,18 +48,35 @@ class AddStudentInfoTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text("icon"),
+    return Container(
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
 
-            Text("자녀 정보 입력"),
-          ],
-        ),
+      decoration: BoxDecoration(
+        color: Color(0xFFE0ECE4),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
 
-        Text("자녀의 학교, 생년월일, 이름을 정확히 입력해주세요"),
-      ],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text("icon"),
+
+              Text("자녀 정보 입력"),
+            ],
+          ),
+
+          Text("자녀의 학교, 생년월일, 이름을 정확히 입력해주세요"),
+        ],
+      ),
     );
   }
 }
@@ -70,18 +87,35 @@ class GetName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text("Icon"),
+    return Container(
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
 
-            Text("이름")
-          ],
-        ),
+      decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
 
-        Text("자녀의 이름을 입력하세요"),
-      ],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text("Icon"),
+
+              Text("이름")
+            ],
+          ),
+
+          Text("자녀의 이름을 입력하세요"),
+        ],
+      ),
     );
   }
 }
@@ -92,18 +126,35 @@ class GetBirthDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text("Icon"),
+    return Container(
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
 
-            Text("생년월일")
-          ],
-        ),
+      decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
 
-        Text("yyyy/mm/dd"),
-      ],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text("Icon"),
+
+              Text("생년월일")
+            ],
+          ),
+
+          Text("yyyy/mm/dd"),
+        ],
+      ),
     );
   }
 }
@@ -114,18 +165,35 @@ class GetSchool extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text("Icon"),
+    return Container(
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
 
-            Text("학교")
-          ],
-        ),
+      decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
 
-        Text("학교 이름을 검색하세요"),
-      ],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text("Icon"),
+
+              Text("학교")
+            ],
+          ),
+
+          Text("학교 이름을 검색하세요"),
+        ],
+      ),
     );
   }
 }
@@ -137,7 +205,30 @@ class AddStudentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("자녀 추가하기"),
+      alignment: Alignment.center,
+      width: 360.w,
+      padding: EdgeInsets.all(16.w),
+
+      decoration: BoxDecoration(
+        color: Color(0xFFE0ECE4),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+
+      child: Text(
+        "자녀 추가하기",
+        style: TextStyle(
+          fontSize: 18.sp,
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF0A0A0A),
+        ),
+      ),
     );
   }
 }
@@ -149,7 +240,30 @@ class CancelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("취소"),
+      alignment: Alignment.center,
+      width: 360.h,
+      padding: EdgeInsets.all(16.w),
+
+      decoration: BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+
+      child: Text(
+        "취소",
+        style: TextStyle(
+          fontSize: 18.sp,
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF0A0A0A),
+        ),
+      ),
     );
   }
 }
