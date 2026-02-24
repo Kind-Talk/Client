@@ -9,39 +9,42 @@ class StudentInfoHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pop(context);
-      },
-      child: Container(
-        width: double.infinity,
-        height: 56.h,
-        padding: EdgeInsets.all(16.h),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Ink(
+          width: double.infinity,
+          height: 56.h,
+          padding: EdgeInsets.all(16.h),
 
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.03),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-
-        child: Row(
-          children: [
-            SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
-
-            Text(
-              '자녀 정보 확인',
-              style: TextStyle(
-                fontSize: 16.h,
-                fontWeight: FontWeight.w400,
-                color: Color(0xFF1C4B2F),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.03),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
-            ),
-          ],
+            ],
+          ),
+
+          child: Row(
+            children: [
+              SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
+
+              Text(
+                '자녀 정보 확인',
+                style: TextStyle(
+                  fontSize: 16.h,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF1C4B2F),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -111,52 +114,59 @@ class StudentInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 360.w,
-      padding: EdgeInsets.all(16.w),
-
-      decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+        onTap: () {},
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
 
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                studentName,
-                style: TextStyle(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF0A0A0A),
-                ),
-              ),
-
-              SizedBox(height: 8.h,),
-
-              Text(
-                "00 초등학교 0학년",
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF0A0A0A),
-                ),
+          decoration: BoxDecoration(
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
               ),
             ],
           ),
 
-          SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20.h, height: 20.h)
-        ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    studentName,
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF0A0A0A),
+                    ),
+                  ),
+
+                  SizedBox(height: 8.h,),
+
+                  Text(
+                    "00 초등학교 0학년",
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF0A0A0A),
+                    ),
+                  ),
+                ],
+              ),
+
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20.h, height: 20.h)
+            ],
+          ),
+        )
       ),
     );
   }
