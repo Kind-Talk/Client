@@ -9,40 +9,43 @@ class AddStudentHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pop(context);
-      },
-      child: Container(
-        width: double.infinity,
-        height: 56.h,
-        padding: EdgeInsets.all(16.h),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Ink(
+          width: double.infinity,
+          height: 56.h,
+          padding: EdgeInsets.all(16.h),
 
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.03),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-
-        child: Row(
-          children: [
-            SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
-
-            Text(
-              '자녀 추가',
-              style: TextStyle(
-                fontSize: 16.h,
-                fontWeight: FontWeight.w400,
-                color: Color(0xFF1C4B2F),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.03),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+
+          child: Row(
+            children: [
+              SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
+
+              Text(
+                '자녀 추가',
+                style: TextStyle(
+                  fontSize: 16.h,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF1C4B2F),
+                ),
+              ),
+            ],
+          ),
+        ), 
       ),
     );
   }
