@@ -109,11 +109,37 @@ class GetName extends StatelessWidget {
             children: [
               Text("Icon"),
 
-              Text("이름")
+              Text(
+                "이름",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF0A0A0A),
+                ),
+              ),
             ],
           ),
 
-          Text("자녀의 이름을 입력하세요"),
+          SizedBox(height: 8.h,),
+
+          SizedBox(
+            width: 320.w,
+            height: 36.h,
+
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: '자녀의 이름을 입력하세요',
+
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.w),
+                  borderSide: BorderSide.none,
+                ),
+
+                filled: true,
+                fillColor: Color(0xF3F3F5FF),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -148,11 +174,53 @@ class GetBirthDate extends StatelessWidget {
             children: [
               Text("Icon"),
 
-              Text("생년월일")
+              Text(
+                "생년월일",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF0A0A0A),
+                ),
+              ),
             ],
           ),
 
-          Text("yyyy/mm/dd"),
+          SizedBox(height: 8.h,),
+
+          Container(
+            width: 320.w,
+            height: 36.h,
+            decoration: BoxDecoration(),
+
+            child: TextFormField(
+              textAlignVertical: TextAlignVertical.center,
+              readOnly: true,
+              decoration: InputDecoration(
+                hintText: '생년월일 선택',
+
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.w),
+                  borderSide: BorderSide.none,
+                ),
+
+                filled: true,
+                fillColor: Color(0xF3F3F5FF),
+              ),
+
+              onTap: () async {
+                final picked = await showDatePicker(
+                  context: context, 
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2000), 
+                  lastDate: DateTime(2100)
+                );
+
+                if (picked != null) {
+                  debugPrint('$picked'); // 임시
+                }
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -187,7 +255,14 @@ class GetSchool extends StatelessWidget {
             children: [
               Text("Icon"),
 
-              Text("학교")
+              Text(
+                "학교",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF0A0A0A),
+                ),
+              ),
             ],
           ),
 
