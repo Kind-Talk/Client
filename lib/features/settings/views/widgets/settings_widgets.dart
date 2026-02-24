@@ -388,12 +388,12 @@ class AddStudent extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
 
-              child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
+              child: SvgPicture.asset('assets/icons/add_person.svg', width: 20, height: 20),
             ),
 
             SizedBox(width: 16.h),
 
-            Container(
+            SizedBox(
               width: 240.w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -474,7 +474,7 @@ class StudentInfo extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
 
-              child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
+              child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
             ),
 
             SizedBox(width: 16.h),
