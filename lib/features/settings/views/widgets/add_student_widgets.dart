@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:front_end/features/settings/views/search_school_screen.dart';
+import 'package:front_end/features/settings/views/widgets/search_school_widgets.dart';
 
 // ======== STATELESS WIDGETS ========
 // 자녀 추가 헤더
@@ -285,12 +285,7 @@ class GetSchool extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SearchSchoolScreen(),
-            ),
-          );
+          showSchoolSearchTab(context);
         },
         child: Ink(
           width: 360.w,
