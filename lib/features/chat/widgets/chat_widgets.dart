@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:front_end/features/chat/views/chat_threads_screen.dart';
+import 'package:front_end/features/threads/views/threads_screen.dart';
 
 // 주제별 정리 위젯
 class TopicSection extends StatefulWidget {
