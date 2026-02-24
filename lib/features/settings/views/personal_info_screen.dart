@@ -18,7 +18,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
         child: Container(
           child: Column(
             children: [
-              Header(),
+              SettingHeader(),
 
               Text("개인 설정 페이지")
             ],
