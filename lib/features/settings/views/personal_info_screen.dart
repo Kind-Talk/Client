@@ -15,14 +15,12 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              SettingHeader(),
+        child: Column(
+          children: [
+            SettingHeader(),
 
-              Text("개인 설정 페이지")
-            ],
-          ),
+            Text("개인 설정 페이지")
+          ],
         ),
       ),
     );

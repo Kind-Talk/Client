@@ -158,7 +158,7 @@ class PersonalInfo extends StatelessWidget {
                   ),
                 ),
 
-                Container(
+                SizedBox(
                   width: 64.w,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -221,14 +221,12 @@ class SignOut extends StatelessWidget {
               SizedBox(width: 16.h),
 
               Expanded(
-                child: Container(
-                  child: Text(
-                    '로그아웃',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFE7000B),
-                    ),
+                child: Text(
+                  '로그아웃',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFE7000B),
                   ),
                 ),
               ),
@@ -246,7 +244,7 @@ class Versions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 20.h,
       child: Text(
         '버전 1.0.0',
