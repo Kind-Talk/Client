@@ -138,7 +138,7 @@ class PersonalInfo extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 width: 225.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -479,7 +479,7 @@ class StudentInfo extends StatelessWidget {
 
             SizedBox(width: 16.h),
 
-            Container(
+            SizedBox(
               width: 240.w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
