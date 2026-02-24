@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:front_end/features/settings/views/widgets/add_student_widgets.dart';
 
+// ======== 자녀 추가 - 화면 ========
 class AddStudentScreen extends StatefulWidget {
   const AddStudentScreen({super.key});
 

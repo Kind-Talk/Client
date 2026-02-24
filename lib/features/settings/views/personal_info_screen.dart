@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
 
+// ======== 개인 정보 수정 - 화면 ========
 class PersonalInfoScreen extends StatefulWidget {
   const PersonalInfoScreen({super.key});
 

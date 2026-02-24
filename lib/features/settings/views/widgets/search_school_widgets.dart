@@ -15,7 +15,6 @@ Future<void> showSchoolSearchTab(BuildContext context) {
   );
 }
 
-
 // ======== STATELESS WIDGETS ========
 // 학교 찾기 탭
 class SearchSchoolTab extends StatelessWidget {

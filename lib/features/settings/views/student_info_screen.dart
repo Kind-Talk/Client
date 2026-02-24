@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:front_end/features/settings/views/widgets/student_info_widgets.dart';
 
-
+// ======== 자녀 정보 - 화면 ========
 class StudentInfoScreen extends StatefulWidget {
   const StudentInfoScreen({super.key});
 

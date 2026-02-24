@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ======== STATELESS WIDGETS ========
 // 자녀 정보 수정 - 헤더
 class EditStudentInfoHeader extends StatelessWidget {
   final String studentName;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ======== 학교 정보 수정 - 화면 ========
 class SchoolInfoScreen extends StatefulWidget {
   const SchoolInfoScreen({super.key});
 

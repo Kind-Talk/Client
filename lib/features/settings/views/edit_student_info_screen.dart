@@ -5,6 +5,7 @@ import 'package:front_end/features/home/utils/index.dart';
 import 'package:front_end/features/settings/views/widgets/add_student_widgets.dart';
 import 'package:front_end/features/settings/views/widgets/edit_student_info_widgets.dart';
 
+// ======== 자녀 정보 수정 - 화면 ========
 class EditStudentInfoScreen extends StatefulWidget {
   final String studentName;
   final String schoolName;

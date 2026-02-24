@@ -4,8 +4,9 @@ import 'package:front_end/features/settings/views/widgets/settings_widgets.dart'
 import 'package:front_end/features/settings/views/widgets/parent_settings_body.dart';
 import 'package:front_end/features/settings/views/widgets/teacher_settings_body.dart';
 
-enum Usermode { teacher, parent }
+enum Usermode { teacher, parent } // 교사 - 학부모 전환용 모드 정의
 
+// ======== 설정 홈 - 화면 ========
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
