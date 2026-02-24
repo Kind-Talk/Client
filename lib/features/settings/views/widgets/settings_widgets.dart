@@ -7,17 +7,18 @@ import 'package:front_end/features/settings/views/personal_info_screen.dart';
 import 'package:front_end/features/settings/views/school_info_screen.dart';
 import 'package:front_end/features/settings/views/student_info_screen.dart';
 
-// ======== STATEFUL WIDGETS ========
+// ======== STATELESS WIDGETS ========
+// ------ COMMON ------
 // 교사-학부모 전환 스위치
-class RoleToggleButton extends StatefulWidget {
-  const RoleToggleButton({super.key});
+class RoleToggleButton extends StatelessWidget {
+  final bool isTeacherMode;
+  final ValueChanged<bool> onChanged;
 
-  @override
-  State<RoleToggleButton> createState() => _RoleToggleButtonState();
-}
-
-class _RoleToggleButtonState extends State<RoleToggleButton> {
-  bool isSwitched = false;
+  const RoleToggleButton({
+    super.key,
+    required this.isTeacherMode,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,50 +27,40 @@ class _RoleToggleButtonState extends State<RoleToggleButton> {
       padding: EdgeInsets.all(16.w),
       alignment: Alignment.centerRight,
 
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
 
-          children: [
-            // 모드 변경 안내 텍스트
-            Text(
-              '${isSwitched? '교사' : '학부모'} 모드 변경',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
-              ),
+        children: [
+          // 모드 변경 안내 텍스트
+          Text(
+            '${isTeacherMode? '교사' : '학부모'} 모드 변경',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w600,
             ),
+          ),
 
-            SizedBox(width: 10.w),
-            
-            // 교사-학부모 전환 스위치
-            Container(
-              child: CupertinoSwitch(
-                value: isSwitched, 
-                onChanged: (value) {
-                  setState(() {
-                    isSwitched = value;
-                  });
-                },
-                ///// 임시 색 부여 ////////
-                // Teacher mode
-                activeTrackColor: Colors.blueAccent,
-                // Parents mode
-                inactiveTrackColor: Colors.redAccent,
-              ),
-            ),
-          ],
-        ),
+          SizedBox(width: 10.w),
+          
+          // 교사-학부모 전환 스위치
+          CupertinoSwitch(
+            value: isTeacherMode, 
+            onChanged: onChanged,
+            ///// 임시 색 부여 ////////
+            // Teacher mode
+            activeTrackColor: Colors.blueAccent,
+            // Parents mode
+            inactiveTrackColor: Colors.redAccent,
+          ),
+        ],
       ),
     );
   }
 }
 
-// ======== STATELESS WIDGETS ========
-// ------ COMMON ------
 // 설정 헤더
-class Header extends StatelessWidget {
-  const Header({super.key});
+class SettingHeader extends StatelessWidget {
+  const SettingHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -314,7 +305,7 @@ class SchoolInfo extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
 
-                child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
+                child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
               ),
 
               SizedBox(width: 16.h),

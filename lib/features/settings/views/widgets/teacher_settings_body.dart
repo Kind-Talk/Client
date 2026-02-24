@@ -7,15 +7,6 @@ class TeacherSettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // Uncomment it for visualize Container area
-      // decoration: BoxDecoration(
-      //   border: Border.all(
-      //     color: Colors.black,
-      //     width: 1.sp,
-      //   )
-      // ),
-      child: SchoolInfo(),
-    );
+    return SchoolInfo();
   }
 }

@@ -36,6 +36,8 @@ class AddStudentHeader extends StatelessWidget {
             children: [
               SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
 
+              SizedBox(width: 8.w,),
+
               Text(
                 '자녀 추가',
                 style: TextStyle(
@@ -97,6 +99,8 @@ class AddStudentInfoTab extends StatelessWidget {
 
                   child: SvgPicture.asset('assets/icons/personal_white.svg', width: 24.h, height: 24.h),
                 ),
+
+                SizedBox(width: 12.w,),
 
                 Text(
                   "자녀 정보 입력",
