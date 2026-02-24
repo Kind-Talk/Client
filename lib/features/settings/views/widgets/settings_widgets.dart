@@ -107,76 +107,80 @@ class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const PersonalInfoScreen()
-          ),
-        );
-      },
-      child: Container(
-        width: 360.w,
-        padding: EdgeInsets.all(21.w),
-
-        decoration: BoxDecoration(
-          color: Color(0xFFE0ECE4),
-          borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 2),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16.r),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PersonalInfoScreen()
             ),
-          ],
-        ),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(21.w),
 
-        child: Container(
-          width: 320.w,
-          padding: EdgeInsets.all(10.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: 225.w,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '홍길동',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF0A0A0A),
-                      ),
-                    ),
-
-                    Text(
-                      '오늘도 좋은 하루 되세요!',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF717182),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Container(
-                width: 64.w,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SvgPicture.asset('assets/icons/settings.svg', width: 20, height: 20),
-
-                    SvgPicture.asset('assets/icons/arrow_green.svg', width: 20, height: 20),
-                  ],
-                ),
+          decoration: BoxDecoration(
+            color: Color(0xFFE0ECE4),
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
               ),
             ],
-          )
+          ),
+
+          child: Container(
+            width: 320.w,
+            padding: EdgeInsets.all(10.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 225.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '홍길동',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF0A0A0A),
+                        ),
+                      ),
+
+                      Text(
+                        '오늘도 좋은 하루 되세요!',
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF717182),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  width: 64.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SvgPicture.asset('assets/icons/settings.svg', width: 20, height: 20),
+
+                      SvgPicture.asset('assets/icons/arrow_green.svg', width: 20, height: 20),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ),
         ),
       ),
     );
@@ -189,51 +193,58 @@ class SignOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 360.w,
-      padding: EdgeInsets.all(16.w),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16.w),
+        onTap: () {},
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
 
-      decoration: BoxDecoration(
-          color: Color(0xFFFFFFFF),
-          borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.all(8.w),
-
-            decoration: BoxDecoration(
-              color: Color(0xFFFFE2E2),
-              shape: BoxShape.circle,
+          decoration: BoxDecoration(
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.circular(16.w),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
 
-            child: SvgPicture.asset('assets/icons/sign_out.svg', width: 20, height: 20),
-          ),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
 
-          SizedBox(width: 16.h),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFE2E2),
+                  shape: BoxShape.circle,
+                ),
 
-          Expanded(
-            child: Container(
-              child: Text(
-                '로그아웃',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFFE7000B),
+                child: SvgPicture.asset('assets/icons/sign_out.svg', width: 20, height: 20),
+              ),
+
+              SizedBox(width: 16.h),
+
+              Expanded(
+                child: Container(
+                  child: Text(
+                    '로그아웃',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFE7000B),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        ],
-      )
+            ],
+          )
+        ),
+      ),
     );
   }
 }
@@ -265,78 +276,81 @@ class SchoolInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const SchoolInfoScreen(),
-          ),
-        );
-      },
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16.r),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SchoolInfoScreen(),
+            ),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
 
-      child: Container(
-        width: 360.w,
-        padding: EdgeInsets.all(16.w),
+          decoration: BoxDecoration(
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.circular(16.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
 
-        decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(16.r),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 2),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+
+                decoration: BoxDecoration(
+                  color: Color(0xFFF3F4F6),
+                  shape: BoxShape.circle,
+                ),
+
+                child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
               ),
+
+              SizedBox(width: 16.h),
+
+              SizedBox(
+                width: 240.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '학교 정보 변경',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF0A0A0A),
+                      ),
+                    ),
+
+                    Text(
+                      '학교, 학급 등',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF717182),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              SizedBox(width: 16.h),
+
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
-
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(8.w),
-
-              decoration: BoxDecoration(
-                color: Color(0xFFF3F4F6),
-                shape: BoxShape.circle,
-              ),
-
-              child: SvgPicture.asset('assets/icons/personal.svg', width: 20, height: 20),
-            ),
-
-            SizedBox(width: 16.h),
-
-            Container(
-              width: 240.w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '학교 정보 변경',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF0A0A0A),
-                    ),
-                  ),
-
-                  Text(
-                    '학교, 학급 등',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF717182),
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-            SizedBox(width: 16.h),
-
-            SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
-          ],
-        )
+          )
+        ),
       ),
     );
   }
@@ -349,81 +363,87 @@ class AddStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const AddStudentScreen(),
-          ),
-        );
-      },
-
-      child: Container(
-        width: 360.w,
-        padding: EdgeInsets.all(16.w),
-
-        decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16.r),
-              topRight: Radius.circular(16.r)
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.r),
+          topRight: Radius.circular(16.r)
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddStudentScreen(),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 2),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
+
+          decoration: BoxDecoration(
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.r),
+                topRight: Radius.circular(16.r)
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+
+                decoration: BoxDecoration(
+                  color: Color(0xFFF3F4F6),
+                  shape: BoxShape.circle,
+                ),
+
+                child: SvgPicture.asset('assets/icons/add_person.svg', width: 20, height: 20),
+              ),
+
+              SizedBox(width: 16.h),
+
+              SizedBox(
+                width: 240.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '자녀 추가',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF0A0A0A),
+                      ),
+                    ),
+
+                    Text(
+                      '새로운 자녀 추가',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF717182),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              SizedBox(width: 16.h),
+
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
-
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(8.w),
-
-              decoration: BoxDecoration(
-                color: Color(0xFFF3F4F6),
-                shape: BoxShape.circle,
-              ),
-
-              child: SvgPicture.asset('assets/icons/add_person.svg', width: 20, height: 20),
-            ),
-
-            SizedBox(width: 16.h),
-
-            SizedBox(
-              width: 240.w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '자녀 추가',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF0A0A0A),
-                    ),
-                  ),
-
-                  Text(
-                    '새로운 자녀 추가',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF717182),
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-            SizedBox(width: 16.h),
-
-            SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
-          ],
-        )
+          )
+        ),
       ),
     );
   }
@@ -435,82 +455,88 @@ class StudentInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const StudentInfoScreen(),
-          ),
-        );
-      },
-
-      child: Container(
-        width: 360.w,
-        padding: EdgeInsets.all(16.w),
-
-        decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(16.r),
-              bottomRight: Radius.circular(16.r)
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(16.r),
+          bottomRight: Radius.circular(16.r)
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const StudentInfoScreen(),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 2),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
+
+          decoration: BoxDecoration(
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16.r),
+                bottomRight: Radius.circular(16.r)
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+
+                decoration: BoxDecoration(
+                  color: Color(0xFFF3F4F6),
+                  shape: BoxShape.circle,
+                ),
+
+                child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
+              ),
+
+              SizedBox(width: 16.h),
+
+              SizedBox(
+                width: 240.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '자녀 정보 확인',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF0A0A0A),
+                      ),
+                    ),
+
+                    Text(
+                      '자녀 정보 관리',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF717182),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              SizedBox(width: 16.h),
+
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
-
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(8.w),
-
-              decoration: BoxDecoration(
-                color: Color(0xFFF3F4F6),
-                shape: BoxShape.circle,
-              ),
-
-              child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
-            ),
-
-            SizedBox(width: 16.h),
-
-            SizedBox(
-              width: 240.w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '자녀 정보 확인',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF0A0A0A),
-                    ),
-                  ),
-
-                  Text(
-                    '자녀 정보 관리',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF717182),
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-            SizedBox(width: 16.h),
-
-            SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
-          ],
-        )
-      )
+          )
+        ),
+      ),
     );
   }
 }
