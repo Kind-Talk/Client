@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ======== FUNCTIONS ========
+// 학교 찾기 탭 calling 함수
 Future<void> showSchoolSearchTab(BuildContext context) {
   return showDialog(
     context: context,
@@ -13,6 +15,9 @@ Future<void> showSchoolSearchTab(BuildContext context) {
   );
 }
 
+
+// ======== STATELESS WIDGETS ========
+// 학교 찾기 탭
 class SearchSchoolTab extends StatelessWidget {
   const SearchSchoolTab({super.key});
 
