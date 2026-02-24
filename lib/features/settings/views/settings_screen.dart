@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:front_end/common/constants/app_constants.dart';
 import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
+import 'package:front_end/common/constants/app_constants.dart';
 import 'package:front_end/features/settings/views/widgets/parent_settings_body.dart';
 import 'package:front_end/features/settings/views/widgets/teacher_settings_body.dart';
 
@@ -21,7 +21,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +44,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                   SizedBox(height: 16.h),
 
-                  (widget.isTeacherMode ? TeacherSettingsBody() : ParentSettingsBody()),
+                  (widget.isTeacherMode
+                      ? TeacherSettingsBody()
+                      : ParentSettingsBody()),
 
                   SizedBox(height: 16.h),
 
@@ -53,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
             ),
-            
+
             Versions(),
           ],
         ),
