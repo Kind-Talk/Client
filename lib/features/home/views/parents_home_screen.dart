@@ -13,19 +13,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-
-  final List<Widget> _pages = [
-    const ChatContentWidget(),
-    const Center(child: Text(("연락처"))),
-    const Center(child: Text("탐색")),
-    const SettingsScreen(),
-  ];
+  bool isTeacherMode = false;
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      const ChatContentWidget(),
+      const Center(child: Text(("연락처"))),
+      const Center(child: Text("탐색")),
+      SettingsScreen(
+        isTeacherMode: isTeacherMode,
+        onTeacherModeChanged: (v) => setState(() => isTeacherMode = v),
+      ), // 추후 회원정보에서 받아오기
+    ];
+
     return Scaffold(
       backgroundColor: const Color(AppConstants.backgroundColor),
-      body: SafeArea(child: _pages[_selectedIndex]),
+      body: SafeArea(child: pages[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
