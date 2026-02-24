@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:front_end/features/settings/views/search_school_screen.dart';
 
 // ======== STATELESS WIDGETS ========
 // 자녀 추가 헤더
@@ -279,48 +280,62 @@ class GetSchool extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 360.w,
-      padding: EdgeInsets.all(16.w),
-
-      decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SearchSchoolScreen(),
+            ),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(16.w),
 
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 20.h, // Same value with height => to make it perfect square
-                height: 20.h,
-                padding: EdgeInsets.all(2.h),
-                decoration: BoxDecoration(),
-
-                child: SvgPicture.asset('assets/icons/school.svg', width: 16.h, height: 16.h),
-              ),
-
-              Text(
-                "학교",
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF0A0A0A),
-                ),
+          decoration: BoxDecoration(
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
               ),
             ],
           ),
 
-          Text("학교 이름을 검색하세요"),
-        ],
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 20.h, // Same value with height => to make it perfect square
+                    height: 20.h,
+                    padding: EdgeInsets.all(2.h),
+                    decoration: BoxDecoration(),
+
+                    child: SvgPicture.asset('assets/icons/school.svg', width: 16.h, height: 16.h),
+                  ),
+
+                  Text(
+                    "학교",
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF0A0A0A),
+                    ),
+                  ),
+                ],
+              ),
+
+              Text("학교 이름을 검색하세요"),
+            ],
+          ),
+        ),
       ),
     );
   }
