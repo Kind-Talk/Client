@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:front_end/features/settings/views/edit_student_info_screen.dart';
 
 // ======== STATELESS WIDGETS ========
 // 자녀 정보 확인 헤더
@@ -106,6 +107,8 @@ class StudentInfoInfoTab extends StatelessWidget {
 // 학생 정보 카드 탭
 class StudentInfoCard extends StatelessWidget {
   final String studentName;
+  final String schoolName = "00"; // 추후 변경 예정
+  final int grade = 0;            // 추후 변경 예정
 
   const StudentInfoCard({
     super.key,
@@ -118,7 +121,18 @@ class StudentInfoCard extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context, 
+            MaterialPageRoute(
+              builder: (context) => EditStudentInfoScreen(
+                studentName: studentName, 
+                schoolName: schoolName,
+                grade: grade
+              ),
+            )
+          );
+        },
         child: Ink(
           width: 360.w,
           padding: EdgeInsets.all(16.w),
@@ -153,7 +167,7 @@ class StudentInfoCard extends StatelessWidget {
                   SizedBox(height: 8.h,),
 
                   Text(
-                    "00 초등학교 0학년",
+                    "$schoolName초등학교 $grade학년",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w400,

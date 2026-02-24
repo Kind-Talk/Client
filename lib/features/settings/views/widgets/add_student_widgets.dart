@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:front_end/features/settings/views/widgets/search_school_widgets.dart';
 
 // ======== STATELESS WIDGETS ========
-// 자녀 추가 헤더
+// 자녀 추가 - 헤더
 class AddStudentHeader extends StatelessWidget {
   const AddStudentHeader({super.key});
 
@@ -52,7 +52,7 @@ class AddStudentHeader extends StatelessWidget {
   }
 }
 
-// 자녀 추가 정보 탭
+// 자녀 추가 - 정보
 class AddStudentInfoTab extends StatelessWidget {
   const AddStudentInfoTab({super.key});
 
