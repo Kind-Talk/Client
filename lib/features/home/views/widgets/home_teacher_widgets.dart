@@ -18,8 +18,16 @@ class TeacherHomeHeader extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("수업 채팅방"), 
+              Text(
+                "수업 채팅방",
+                style: TextStyle(
+                  color: Color(0xFF2A7146),
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ), 
               Text("icon"),
             ],
           ),
@@ -40,22 +48,78 @@ class ClassroomCard extends StatelessWidget {
     return Container(
       width: 362.w,
       height: 156.h,
+      padding: EdgeInsets.all(21.w),
 
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(16.r),
       ),
 
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [Text("2025학년 1-2반"), Text("Notif")],),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "2025학년 1-2반",
+                style: TextStyle(
+                  color: Color(0xFF0A0A0A),
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ), 
+              Text("Notif")
+            ],
+          ),
 
-          Text("체팅방 코드: 6DK4D1"),
+          Text(
+            "채팅방 코드: 6DK4D1",
+            style: TextStyle(
+              color: Color(0xFF717182),
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
 
           Text("--------"),
 
-          Row(children: [Row(children: [Text("Icon"), Text("최근 질문"),],), Text("어제"),],),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Text("Icon"), 
+                  Text(
+                    "최근 질문",
+                    style: TextStyle(
+                      color: Color(0xFF717182),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ), 
+              
+              Text(
+                "어제",
+                style: TextStyle(
+                  color: Color(0xFF717182),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
 
-          Text("선생님 ~ 이번주 숙제 알 수 있을까요?"),
+          Text(
+            "선생님 ~ 이번주 숙제 알 수 있을까요?",
+            style: TextStyle(
+              color: Color(0xFF4A5565),
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
         ],
       ),
     );
