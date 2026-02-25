@@ -126,33 +126,35 @@ class PersonalInfo extends StatelessWidget {
             ],
           ),
 
-      child: Container(
-        width: 320.w,
-        padding: EdgeInsets.all(10.w),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: 225.w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '홍길동',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF0A0A0A),
-                    ),
-                  ),
+          child: Container(
+            width: 320.w,
+            padding: EdgeInsets.all(10.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 225.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '홍길동',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF0A0A0A),
+                        ),
+                      ),
 
-                  Text(
-                    '오늘도 좋은 하루 되세요!',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF717182),
-                    ),
+                      Text(
+                        '오늘도 좋은 하루 되세요!',
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF717182),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -168,7 +170,7 @@ class PersonalInfo extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ),
         ),
       ),
