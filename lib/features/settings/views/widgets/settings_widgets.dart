@@ -33,15 +33,18 @@ class RoleToggleButton extends StatelessWidget {
         children: [
           // 모드 변경 안내 텍스트
           Text(
-            '${isTeacherMode ? '교사' : '학부모'} 모드 변경',
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
+            '${isTeacherMode? '교사' : '학부모'} 모드 변경',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w600,
+            ),
           ),
 
           SizedBox(width: 10.w),
-
+          
           // 교사-학부모 전환 스위치
           CupertinoSwitch(
-            value: isTeacherMode,
+            value: isTeacherMode, 
             onChanged: onChanged,
             ///// 임시 색 부여 ////////
             // Teacher mode
@@ -95,21 +98,33 @@ class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 360.w,
-      padding: EdgeInsets.all(21.w),
-
-      decoration: BoxDecoration(
-        color: Color(0xFFE0ECE4),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PersonalInfoScreen()
+            ),
+          );
+        },
+        child: Ink(
+          width: 360.w,
+          padding: EdgeInsets.all(21.w),
+
+          decoration: BoxDecoration(
+            color: Color(0xFFE0ECE4),
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ),
-        ],
-      ),
 
       child: Container(
         width: 320.w,
@@ -139,30 +154,22 @@ class PersonalInfo extends StatelessWidget {
                       color: Color(0xFF717182),
                     ),
                   ),
-                ],
-              ),
-            ),
+                ),
 
-            SizedBox(
-              width: 64.w,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/settings.svg',
-                    width: 20,
-                    height: 20,
-                  ),
+                SizedBox(
+                  width: 64.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SvgPicture.asset('assets/icons/settings.svg', width: 20, height: 20),
 
-                  SvgPicture.asset(
-                    'assets/icons/arrow_green.svg',
-                    width: 20,
-                    height: 20,
+                      SvgPicture.asset('assets/icons/arrow_green.svg', width: 20, height: 20),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            )
+          ),
         ),
       ),
     );
@@ -206,11 +213,7 @@ class SignOut extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
 
-                child: SvgPicture.asset(
-                  'assets/icons/sign_out.svg',
-                  width: 20,
-                  height: 20,
-                ),
+                child: SvgPicture.asset('assets/icons/sign_out.svg', width: 20, height: 20),
               ),
 
               SizedBox(width: 16.h),
@@ -226,7 +229,7 @@ class SignOut extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          )
         ),
       ),
     );
@@ -246,7 +249,7 @@ class Versions extends StatelessWidget {
         style: TextStyle(
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
-          color: Color(0xFF717182),
+          color: Color(0xFF717182)
         ),
       ),
     );
@@ -267,7 +270,9 @@ class SchoolInfo extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const SchoolInfoScreen()),
+            MaterialPageRoute(
+              builder: (context) => const SchoolInfoScreen(),
+            ),
           );
         },
         child: Ink(
@@ -275,16 +280,16 @@ class SchoolInfo extends StatelessWidget {
           padding: EdgeInsets.all(16.w),
 
           decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(16.r),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 2),
-              ),
-            ],
-          ),
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.circular(16.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
 
           child: Row(
             children: [
@@ -296,11 +301,7 @@ class SchoolInfo extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
 
-                child: SvgPicture.asset(
-                  'assets/icons/personal_green.svg',
-                  width: 20,
-                  height: 20,
-                ),
+                child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
               ),
 
               SizedBox(width: 16.h),
@@ -326,20 +327,16 @@ class SchoolInfo extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF717182),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
 
               SizedBox(width: 16.h),
 
-              SvgPicture.asset(
-                'assets/icons/arrow_gray.svg',
-                width: 20,
-                height: 20,
-              ),
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
+          )
         ),
       ),
     );
@@ -358,12 +355,14 @@ class AddStudent extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16.r),
-          topRight: Radius.circular(16.r),
+          topRight: Radius.circular(16.r)
         ),
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const AddStudentScreen()),
+            MaterialPageRoute(
+              builder: (context) => const AddStudentScreen(),
+            ),
           );
         },
         child: Ink(
@@ -371,19 +370,19 @@ class AddStudent extends StatelessWidget {
           padding: EdgeInsets.all(16.w),
 
           decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16.r),
-              topRight: Radius.circular(16.r),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 2),
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.r),
+                topRight: Radius.circular(16.r)
               ),
-            ],
-          ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
 
           child: Row(
             children: [
@@ -395,11 +394,7 @@ class AddStudent extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
 
-                child: SvgPicture.asset(
-                  'assets/icons/add_person.svg',
-                  width: 20,
-                  height: 20,
-                ),
+                child: SvgPicture.asset('assets/icons/add_person.svg', width: 20, height: 20),
               ),
 
               SizedBox(width: 16.h),
@@ -425,20 +420,16 @@ class AddStudent extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF717182),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
 
               SizedBox(width: 16.h),
 
-              SvgPicture.asset(
-                'assets/icons/arrow_gray.svg',
-                width: 20,
-                height: 20,
-              ),
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
+          )
         ),
       ),
     );
@@ -461,7 +452,9 @@ class StudentInfo extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const StudentInfoScreen()),
+            MaterialPageRoute(
+              builder: (context) => const StudentInfoScreen(),
+            ),
           );
         },
         child: Ink(
@@ -493,11 +486,7 @@ class StudentInfo extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
 
-                child: SvgPicture.asset(
-                  'assets/icons/personal_green.svg',
-                  width: 20,
-                  height: 20,
-                ),
+                child: SvgPicture.asset('assets/icons/personal_green.svg', width: 20, height: 20),
               ),
 
               SizedBox(width: 16.h),
@@ -530,13 +519,9 @@ class StudentInfo extends StatelessWidget {
 
               SizedBox(width: 16.h),
 
-              SvgPicture.asset(
-                'assets/icons/arrow_gray.svg',
-                width: 20,
-                height: 20,
-              ),
+              SvgPicture.asset('assets/icons/arrow_gray.svg', width: 20, height: 20),
             ],
-          ),
+          )
         ),
       ),
     );
