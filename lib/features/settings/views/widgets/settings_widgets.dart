@@ -126,35 +126,33 @@ class PersonalInfo extends StatelessWidget {
             ],
           ),
 
-          child: Container(
-            width: 320.w,
-            padding: EdgeInsets.all(10.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 225.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '홍길동',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF0A0A0A),
-                        ),
-                      ),
+      child: Container(
+        width: 320.w,
+        padding: EdgeInsets.all(10.w),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              width: 225.w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '홍길동',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF0A0A0A),
+                    ),
+                  ),
 
-                      Text(
-                        '오늘도 좋은 하루 되세요!',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF717182),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    '오늘도 좋은 하루 되세요!',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF717182),
+                    ),
                   ),
                 ),
 
@@ -194,16 +192,16 @@ class SignOut extends StatelessWidget {
           padding: EdgeInsets.all(16.w),
 
           decoration: BoxDecoration(
-              color: Color(0xFFFFFFFF),
-              borderRadius: BorderRadius.circular(16.w),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(16.w),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
 
           child: Row(
             children: [
@@ -449,7 +447,7 @@ class StudentInfo extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.r),
-          bottomRight: Radius.circular(16.r)
+          bottomRight: Radius.circular(16.r),
         ),
         onTap: () {
           Navigator.push(
@@ -464,19 +462,19 @@ class StudentInfo extends StatelessWidget {
           padding: EdgeInsets.all(16.w),
 
           decoration: BoxDecoration(
-              color: Color(0xFFFFFFFF),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(16.r),
-                bottomRight: Radius.circular(16.r)
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16.r),
+              bottomRight: Radius.circular(16.r),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
 
           child: Row(
             children: [
@@ -514,7 +512,7 @@ class StudentInfo extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF717182),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
