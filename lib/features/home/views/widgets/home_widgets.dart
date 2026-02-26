@@ -120,47 +120,54 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Color(backgColor),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '읽지 않은 답변',
-                style: TextStyle(color: Color(fontColor), fontSize: 14.sp),
-              ),
-              SizedBox(height: 4.h),
-              Text(
-                '3개',
-                style: TextStyle(
-                  color: Color(fontColor),
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+        onTap: () {},
+        child: Ink(
+          width: double.infinity,
+          padding: EdgeInsets.all(16.w),
+          decoration: BoxDecoration(
+            color: Color(backgColor),
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
             ],
           ),
-          Icon(
-            CupertinoIcons.chat_bubble,
-            color: Color(fontColor),
-            size: 40.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '읽지 않은 답변',
+                    style: TextStyle(color: Color(fontColor), fontSize: 14.sp),
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    '3개',
+                    style: TextStyle(
+                      color: Color(fontColor),
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Icon(
+                CupertinoIcons.chat_bubble,
+                color: Color(fontColor),
+                size: 40.w,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

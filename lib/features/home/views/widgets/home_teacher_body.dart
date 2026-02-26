@@ -30,7 +30,7 @@ class TeacherHomeBody extends StatelessWidget {
                   '개설된 채팅방 리스트',
                   style: TextStyle(
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
 
