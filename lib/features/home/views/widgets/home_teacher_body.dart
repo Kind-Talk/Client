@@ -90,26 +90,7 @@ class TeacherHomeBody extends StatelessWidget {
         Positioned(
           right: 16.w,
           bottom: 16.h,
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(32.r),
-              onTap: () {},
-              child: Ink(
-                width: 64.w,
-                height: 64.h,
-                decoration: BoxDecoration(
-                  color: Color(0xFFF8E9A6),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  CupertinoIcons.add,
-                  size: 32.0,
-                  color: Color(0xFFFFFFFF),
-                ),
-              ),
-            ),
-          ),
+          child: CreateNewClassChatButton(),
         ),
       ],
     );

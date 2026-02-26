@@ -1,5 +1,7 @@
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:front_end/features/home/views/widgets/add_chatroom_widgets.dart';
+
 
 // ======== STATELESS WIDGETS ========
 // 선생 홈 - 헤더
@@ -71,7 +73,7 @@ class TeacherHomeHeader extends StatelessWidget {
   }
 }
 
-// 학급 단체방 카드
+// 학급 채팅방 카드
 class ClassroomCard extends StatelessWidget {
   final int schoolYear;       // 학년도
   final int grade;            // 학년
@@ -201,6 +203,37 @@ class ClassroomCard extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// 학급 채팅방 생성 버튼
+class CreateNewClassChatButton extends StatelessWidget {
+  const CreateNewClassChatButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(32.r),
+        onTap: () {
+          showCreateChatroomTab(context);
+        },
+        child: Ink(
+          width: 64.w,
+          height: 64.h,
+          decoration: BoxDecoration(
+            color: Color(0xFFF8E9A6),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            CupertinoIcons.add,
+            size: 32.0,
+            color: Color(0xFF31533E),
           ),
         ),
       ),
