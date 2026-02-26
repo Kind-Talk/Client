@@ -78,6 +78,7 @@ class CreateNewChatroomTab extends StatelessWidget {
                 buttonText: "취소",
                 buttonColor: 0xFFFFFFFF,
                 textColor: 0xFF0A0A0A,
+                result: false,
               ),
 
               SizedBox(width: 14.w,),
@@ -86,6 +87,7 @@ class CreateNewChatroomTab extends StatelessWidget {
                 buttonText: "완료",
                 buttonColor: 0xFF2F7D4E,
                 textColor: 0xFFFFFFFF,
+                result: true,
               ),
             ],
           ),
@@ -196,11 +198,13 @@ class MediumActionButton extends StatelessWidget {
   final String buttonText;
   final int buttonColor;
   final int textColor;
+  final bool? result;
   const MediumActionButton({
     super.key,
     required this.buttonText,
     required this.buttonColor,
     required this.textColor,
+    required this.result,
   });
 
   @override
@@ -210,7 +214,7 @@ class MediumActionButton extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
         onTap: () {
-          Navigator.of(context).pop(true);
+          Navigator.of(context).pop(result);
         },
         child: Ink(
           width: 144.w,
@@ -255,7 +259,9 @@ class LargeActionButton extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pop();
+        },
         child: Ink(
           width: 302.w,
           height: 50.h,
