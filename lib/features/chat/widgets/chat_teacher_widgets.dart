@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 
+// ======== STATELESS WIDGETS ========
 // 주제 스레드 카드 위젯
 class TopicCard extends StatelessWidget {
   final String title;
@@ -80,7 +81,7 @@ class TeacherChatroomAppBar extends StatelessWidget implements PreferredSizeWidg
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFFFBF1D1),
+      backgroundColor: const Color(0xFFF8E9A6),
       elevation: 0,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back, color: Colors.black),
