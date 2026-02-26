@@ -62,6 +62,20 @@ class TeacherHomeBody extends StatelessWidget {
                           chatroomCode: '47JP4K',
                         ),
                         SizedBox(height: 16.h),
+                        ClassroomCard(
+                          schoolYear: 2023,
+                          grade: 2,
+                          section: '3',
+                          chatroomCode: '2W87AM',
+                        ),
+                        SizedBox(height: 16.h),
+                        ClassroomCard(
+                          schoolYear: 2022,
+                          grade: 1,
+                          section: '1',
+                          chatroomCode: 'N72R3H',
+                        ),
+                        SizedBox(height: 16.h),
                       ],
                     ),
 
