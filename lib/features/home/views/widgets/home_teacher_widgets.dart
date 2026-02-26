@@ -88,77 +88,101 @@ class ClassroomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 362.w,
-      height: 156.h,
-      padding: EdgeInsets.all(21.w),
-
-      decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-      ),
+        onTap: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => const PersonalInfoScreen()
+          //   ),
+          // );
+        },
+        child: Ink(
+          width: 362.w,
+          height: 156.h,
+          padding: EdgeInsets.all(21.w),
 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "$schoolYear학년 $grade-$section반",
-                style: TextStyle(
-                  color: Color(0xFF0A0A0A),
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ), 
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.sp, vertical: 2.sp),
-                decoration: BoxDecoration(
-                  color: Colors.redAccent,
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Text(
-                  "2",
-                  style: TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
+          decoration: BoxDecoration(
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(16.r),
           ),
 
-          Text(
-            "채팅방 코드: $chatroomCode",
-            style: TextStyle(
-              color: Color(0xFF717182),
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-
-          Divider(
-            color: Color(0xFFF3F4F6),
-            thickness: 1,
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    CupertinoIcons.chat_bubble,
-                    color: Color(0xFFF8E9A6),
-                    size: 16.0,
-                  ),
-
-                  SizedBox(width: 8.w,),
-
                   Text(
-                    "최근 질문",
+                    "$schoolYear학년 $grade-$section반",
+                    style: TextStyle(
+                      color: Color(0xFF0A0A0A),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ), 
+                  
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.sp, vertical: 2.sp),
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: Text(
+                      "2",
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              Text(
+                "채팅방 코드: $chatroomCode",
+                style: TextStyle(
+                  color: Color(0xFF717182),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+
+              Divider(
+                color: Color(0xFFF3F4F6),
+                thickness: 1,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        CupertinoIcons.chat_bubble,
+                        color: Color(0xFFF8E9A6),
+                        size: 16.0,
+                      ),
+
+                      SizedBox(width: 8.w,),
+
+                      Text(
+                        "최근 질문",
+                        style: TextStyle(
+                          color: Color(0xFF717182),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ), 
+                  
+                  Text(
+                    "어제",
                     style: TextStyle(
                       color: Color(0xFF717182),
                       fontSize: 12.sp,
@@ -166,28 +190,19 @@ class ClassroomCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              ), 
-              
+              ),
+
               Text(
-                "어제",
+                "선생님 ~ 이번주 숙제 알 수 있을까요?",
                 style: TextStyle(
-                  color: Color(0xFF717182),
-                  fontSize: 12.sp,
+                  color: Color(0xFF4A5565),
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ],
           ),
-
-          Text(
-            "선생님 ~ 이번주 숙제 알 수 있을까요?",
-            style: TextStyle(
-              color: Color(0xFF4A5565),
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
