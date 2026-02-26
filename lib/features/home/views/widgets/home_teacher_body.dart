@@ -39,9 +39,19 @@ class TeacherHomeBody extends StatelessWidget {
                 // 방 리스트
                 Column(
                   children: [
-                    ClassroomCard(),
+                    ClassroomCard(
+                      schoolYear: 2025,
+                      grade: 1,
+                      section: '2',
+                      chatroomCode: '6DK4D1',
+                    ),
                     SizedBox(height: 16.h),
-                    ClassroomCard(),
+                    ClassroomCard(
+                      schoolYear: 2024,
+                      grade: 1,
+                      section: '1',
+                      chatroomCode: '47JP4K',
+                    ),
                     SizedBox(height: 16.h),
                   ],
                 ),

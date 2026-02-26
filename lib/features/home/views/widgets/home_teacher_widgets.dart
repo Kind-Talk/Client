@@ -10,6 +10,7 @@ class TeacherHomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 133.h,
+      padding: EdgeInsets.all(16.w),
 
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),
@@ -19,6 +20,7 @@ class TeacherHomeHeader extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "수업 채팅방",
@@ -28,11 +30,41 @@ class TeacherHomeHeader extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ), 
-              Text("icon"),
+
+              Container(
+                width: 48.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF8E9A6),
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
+                child: Icon(
+                  CupertinoIcons.book, 
+                  color: Color(0xFF31533E),
+                  size: 24.0,
+                ),
+              ),
             ],
           ),
 
-          Text("채팅방 검색"),
+          SizedBox(height: 16.h,),
+
+          Container(
+            height: 36.h,
+            decoration: BoxDecoration(
+              color: Color(0xFFF3F4F6),
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+            child: CupertinoTextFormFieldRow(
+              placeholder: "채팅방 입력",
+              padding: EdgeInsets.all(1.w),
+              placeholderStyle: TextStyle(
+                color: Color(0xFF717182),
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -41,7 +73,18 @@ class TeacherHomeHeader extends StatelessWidget {
 
 // 학급 단체방 카드
 class ClassroomCard extends StatelessWidget {
-  const ClassroomCard({super.key});
+  final int schoolYear;       // 학년도
+  final int grade;            // 학년
+  final String section;       // 반
+  final String chatroomCode;  // 채팅방 코드
+
+  const ClassroomCard({
+    super.key,
+    required this.schoolYear,
+    required this.grade,
+    required this.section,
+    required this.chatroomCode,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,19 +105,33 @@ class ClassroomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "2025학년 1-2반",
+                "$schoolYear학년 $grade-$section반",
                 style: TextStyle(
                   color: Color(0xFF0A0A0A),
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ), 
-              Text("Notif")
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.sp, vertical: 2.sp),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Text(
+                  "2",
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ],
           ),
 
           Text(
-            "채팅방 코드: 6DK4D1",
+            "채팅방 코드: $chatroomCode",
             style: TextStyle(
               color: Color(0xFF717182),
               fontSize: 14.sp,
@@ -89,7 +146,14 @@ class ClassroomCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text("Icon"), 
+                  Icon(
+                    CupertinoIcons.chat_bubble,
+                    color: Color(0xFFF8E9A6),
+                    size: 16.0,
+                  ),
+
+                  SizedBox(width: 8.w,),
+
                   Text(
                     "최근 질문",
                     style: TextStyle(
