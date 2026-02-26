@@ -139,7 +139,10 @@ class ClassroomCard extends StatelessWidget {
             ),
           ),
 
-          Text("--------"),
+          Divider(
+            color: Color(0xFFF3F4F6),
+            thickness: 1,
+          ),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

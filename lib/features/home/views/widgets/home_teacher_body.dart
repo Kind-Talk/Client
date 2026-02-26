@@ -21,7 +21,7 @@ class TeacherHomeBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // 채팅 카드
-                ChatCard(),
+                ChatCard(backgColor: 0xFFF8E9A6, fontColor: 0xFF26643E,),
 
                 SizedBox(height: 16.h),
 

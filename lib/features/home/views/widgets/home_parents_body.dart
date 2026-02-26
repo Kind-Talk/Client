@@ -31,7 +31,7 @@ class ParentsHomeBody extends StatelessWidget {
                 SizedBox(height: 16.h),
 
                 // 채팅 카드
-                ChatCard(),
+                ChatCard(backgColor: 0xFFBFD7C8, fontColor: 0xFFFFFFFF,),
 
                 SizedBox(height: 16.h),
 

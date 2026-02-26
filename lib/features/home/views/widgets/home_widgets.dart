@@ -110,7 +110,13 @@ class TopArea extends StatelessWidget {
 
 // 채팅 카드 위젯
 class ChatCard extends StatelessWidget {
-  const ChatCard({super.key});
+  final int backgColor;
+  final int fontColor;
+  const ChatCard({
+    super.key,
+    required this.backgColor,
+    required this.fontColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -118,11 +124,11 @@ class ChatCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: const Color(0xFFBFD7C8),
+        color: Color(backgColor),
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.5),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -136,13 +142,13 @@ class ChatCard extends StatelessWidget {
             children: [
               Text(
                 '읽지 않은 답변',
-                style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 14.sp),
+                style: TextStyle(color: Color(fontColor), fontSize: 14.sp),
               ),
               SizedBox(height: 4.h),
               Text(
                 '3개',
                 style: TextStyle(
-                  color: Color(0xFFFFFFFF),
+                  color: Color(fontColor),
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
@@ -151,7 +157,7 @@ class ChatCard extends StatelessWidget {
           ),
           Icon(
             CupertinoIcons.chat_bubble,
-            color: Colors.white.withValues(alpha: 0.8),
+            color: Color(fontColor),
             size: 40.w,
           ),
         ],
