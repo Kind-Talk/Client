@@ -260,7 +260,7 @@ class LargeActionButton extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
         onTap: () {
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(); // 임시로 함수 직접적으로 삽입 => 향후 위젯의 효율적인 사용을 위해 리팩토링할 예정
         },
         child: Ink(
           width: 302.w,
