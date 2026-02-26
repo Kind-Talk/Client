@@ -1,10 +1,15 @@
+import 'package:front_end/features/chat/views/chat_teacher_screen.dart';
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:front_end/features/home/views/widgets/home_teacher_widgets.dart';
 
 class TeacherHomeBody extends StatelessWidget {
-  const TeacherHomeBody({super.key});
+  final bool isTeacherMode;
+  const TeacherHomeBody({
+    super.key,
+    required this.isTeacherMode,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,28 +58,91 @@ class TeacherHomeBody extends StatelessWidget {
                           grade: 1,
                           section: '2',
                           chatroomCode: '6DK4D1',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TeacherChatroomScreen(
+                                  schoolYear: 2025, 
+                                  grade: 1, 
+                                  session: '2', 
+                                  classroomCode: '6DK4D1',
+                                  isTeacherMode: isTeacherMode,
+                                )
+                              ),
+                            );
+                          },
                         ),
+                        
                         SizedBox(height: 16.h),
+                        
                         ClassroomCard(
                           schoolYear: 2024,
                           grade: 1,
                           section: '1',
                           chatroomCode: '47JP4K',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TeacherChatroomScreen(
+                                  schoolYear: 2024, 
+                                  grade: 1, 
+                                  session: '1', 
+                                  classroomCode: '47JP4K',
+                                  isTeacherMode: isTeacherMode,
+                                )
+                              ),
+                            );
+                          },
                         ),
+                        
                         SizedBox(height: 16.h),
+                        
                         ClassroomCard(
                           schoolYear: 2023,
                           grade: 2,
                           section: '3',
                           chatroomCode: '2W87AM',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TeacherChatroomScreen(
+                                  schoolYear: 2023, 
+                                  grade: 2, 
+                                  session: '3', 
+                                  classroomCode: '2W87AM',
+                                  isTeacherMode: isTeacherMode,
+                                )
+                              ),
+                            );
+                          },
                         ),
+                        
                         SizedBox(height: 16.h),
+                        
                         ClassroomCard(
                           schoolYear: 2022,
                           grade: 1,
                           section: '1',
                           chatroomCode: 'N72R3H',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TeacherChatroomScreen(
+                                  schoolYear: 2022, 
+                                  grade: 1, 
+                                  session: '1', 
+                                  classroomCode: 'N72R3H',
+                                  isTeacherMode: isTeacherMode,
+                                )
+                              ),
+                            );
+                          },
                         ),
+                        
                         SizedBox(height: 16.h),
                       ],
                     ),

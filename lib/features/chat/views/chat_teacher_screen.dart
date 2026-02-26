@@ -2,42 +2,50 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/features/chat/utils/index.dart';
+import 'package:front_end/features/chat/widgets/chat_teacher_widgets.dart';
 
-class ChatRoomScreen extends StatefulWidget {
-  final String teacherName;
-  final String schoolName;
+class TeacherChatroomScreen extends StatefulWidget {
+  final int schoolYear;       // 학년도
+  final int grade;            // 학년
+  final String session;       // 반
+  final String classroomCode; // 채팅방 코드
   final bool isTeacherMode;
 
-  const ChatRoomScreen({
+  const TeacherChatroomScreen({
     super.key,
-    required this.teacherName,
-    required this.schoolName,
+    required this.schoolYear,
+    required this.grade,
+    required this.session,
+    required this.classroomCode,
     required this.isTeacherMode,
   });
 
   @override
-  State<ChatRoomScreen> createState() => _ChatRoomScreenState();
+  State<TeacherChatroomScreen> createState() => _TeacherChatroomScreenState();
 }
 
-class _ChatRoomScreenState extends State<ChatRoomScreen> {
+class _TeacherChatroomScreenState extends State<TeacherChatroomScreen> {
   final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(AppConstants.backgroundColor),
+      backgroundColor: const Color(0xFFE9F4ED),
 
       // 상단 바
-      appBar: ChatRoomAppBar(
-        schoolName: widget.schoolName,
-        teacherName: widget.teacherName,
+      appBar: TeacherChatroomAppBar(
+        schoolYear: widget.schoolYear,
+        grade: widget.grade,
+        session: widget.session,
+        classroomCode: widget.classroomCode
       ),
 
       // 채팅 내용
       body: Column(
         children: [
-          TopicSection(isTeacherMode: widget.isTeacherMode,),
+          TopicSection(isTeacherMode: widget.isTeacherMode),
+
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -76,17 +84,10 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                   bubbleColor: const Color(0xFF2F7D4E),
                   textColor: Colors.white,
                 ),
-                MessageBubble(
-                  sender: "김영희 학부모",
-                  text: "안녕하세요, 다음 주 월요일 수업은 온라인으로 진행됩니다.",
-                  time: "오전 9:30",
-                  isMe: false,
-                  bubbleColor: Colors.white,
-                  textColor: Colors.black,
-                ),
+
                 MessageBubble(
                   sender: null,
-                  text: "선생님 ~ 이번주 숙제 알 수 있을까요?",
+                  text: "안녕하세요, 다음 주 월요일 수업은 온라인으로 진행됩니다.",
                   time: "오전 10:15",
                   isMe: true,
                   bubbleColor: const Color(0xFFB0D0C4),

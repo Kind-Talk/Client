@@ -5,7 +5,11 @@ import 'package:front_end/features/threads/views/threads_screen.dart';
 
 // 주제별 정리 위젯
 class TopicSection extends StatefulWidget {
-  const TopicSection({super.key});
+  final bool isTeacherMode;
+  const TopicSection({
+    super.key,
+    required this.isTeacherMode,
+  });
 
   @override
   State<TopicSection> createState() => _TopicSectionState();
@@ -18,7 +22,7 @@ class _TopicSectionState extends State<TopicSection> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Color(0xFFFFFFFF),
+      color: widget.isTeacherMode ? Color(0xFFFFFFFF) : Color(0xFFFFFFFF),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -74,16 +78,20 @@ class _TopicSectionState extends State<TopicSection> {
               child: Row(
                 children: [
                   SizedBox(width: 16.w),
-                  const TopicCard(
+                  
+                  TopicCard(
                     title: "숙제 관련",
                     preview: "선생님 이번 주 숙제 알 수 있을까요?",
                     time: "2시간 전",
+                    isTeacherMode: widget.isTeacherMode,
                   ),
                   SizedBox(width: 16.w),
-                  const TopicCard(
+                  
+                  TopicCard(
                     title: "방학 관련",
                     preview: "선생님 ~ 이번 방학 기간이 ... ",
                     time: "5시간 전",
+                    isTeacherMode: widget.isTeacherMode,
                   ),
                 ],
               ),
@@ -125,12 +133,14 @@ class TopicCard extends StatelessWidget {
   final String title;
   final String preview;
   final String time;
+  final bool isTeacherMode;
 
   const TopicCard({
     super.key,
     required this.preview,
     required this.time,
     required this.title,
+    required this.isTeacherMode,
   });
 
   @override
@@ -144,7 +154,7 @@ class TopicCard extends StatelessWidget {
         bottom: 36.h,
       ),
       decoration: BoxDecoration(
-        color: const Color(0xFFFDF8E8),
+        color: isTeacherMode ? Color(0xFFE9F4ED) : Color(0xFFFDF8E8),
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
@@ -287,9 +297,13 @@ class InputArea extends StatelessWidget {
         child: Row(
           children: [
             Icon(Icons.attach_file, color: Colors.grey[600]),
+
             SizedBox(width: 12.w),
+
             Icon(CupertinoIcons.photo, color: Colors.grey[600]),
+
             SizedBox(width: 12.w),
+
             Expanded(
               child: Container(
                 padding: EdgeInsets.only(left: 16.w),
@@ -315,7 +329,9 @@ class InputArea extends StatelessWidget {
                 ),
               ),
             ),
+            
             SizedBox(width: 8.w),
+            
             GestureDetector(
               onTap: onSendPressed,
               child: Container(
