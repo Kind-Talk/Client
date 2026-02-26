@@ -3,6 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:front_end/features/home/views/widgets/add_chatroom_widgets.dart';
 
 
+// ======== FUNCTIONS ========
+// 채팅방 생성 확인 탭 -> 채팅방 코드 탭 전환 함수
+Future<void> createChatroomFlow(BuildContext context) async {
+  final confirmed = await showCreateChatroomTab(context);
+
+  if (confirmed == true && context.mounted) {
+    await showChatroomCodeTab(context);
+  }
+}
+
 // ======== STATELESS WIDGETS ========
 // 선생 홈 - 헤더
 class TeacherHomeHeader extends StatelessWidget {
@@ -221,7 +231,7 @@ class CreateNewClassChatButton extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(32.r),
         onTap: () {
-          showCreateChatroomTab(context);
+          createChatroomFlow(context);
         },
         child: Ink(
           width: 64.w,
