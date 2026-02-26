@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      (isTeacherMode ? TeacherHomeBody() : ParentsHomeBody()), // 교사-학부모 전환
+      (isTeacherMode ? TeacherHomeBody(isTeacherMode: isTeacherMode) : ParentsHomeBody(isTeacherMode: isTeacherMode,)), // 교사-학부모 전환
       const Center(child: Text(("연락처"))),
       const Center(child: Text("탐색")),
       SettingsScreen(

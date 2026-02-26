@@ -93,12 +93,15 @@ class ClassroomCard extends StatelessWidget {
   final String section;       // 반
   final String chatroomCode;  // 채팅방 코드
 
+  final VoidCallback? onTap;
+
   const ClassroomCard({
     super.key,
     required this.schoolYear,
     required this.grade,
     required this.section,
     required this.chatroomCode,
+    this.onTap,
   });
 
   @override
@@ -107,14 +110,7 @@ class ClassroomCard extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => const PersonalInfoScreen()
-          //   ),
-          // );
-        },
+        onTap: (onTap != null) ? onTap : () {},
         child: Ink(
           width: 362.w,
           height: 156.h,

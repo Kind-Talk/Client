@@ -2,7 +2,11 @@ import 'package:front_end/features/home/utils/index.dart';
 import 'package:flutter/cupertino.dart';
 
 class ParentsHomeBody extends StatelessWidget {
-  const ParentsHomeBody({super.key});
+  final bool isTeacherMode;
+  const ParentsHomeBody({
+    super.key,
+    required this.isTeacherMode,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +67,10 @@ class ParentsHomeBody extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChatRoomScreen(
+                            builder: (context) => ChatRoomScreen(
                               teacherName: "김영희 선생님",
                               schoolName: "000 초등학교",
+                              isTeacherMode: isTeacherMode,
                             ),
                           ),
                         );
@@ -85,9 +90,10 @@ class ParentsHomeBody extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChatRoomScreen(
+                            builder: (context) => ChatRoomScreen(
                               teacherName: "김영희 선생님",
                               schoolName: "000 초등학교",
+                              isTeacherMode: isTeacherMode,
                             ),
                           ),
                         );
