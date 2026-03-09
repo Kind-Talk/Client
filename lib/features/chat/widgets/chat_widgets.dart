@@ -7,9 +7,9 @@ import 'package:front_end/features/threads/views/threads_screen.dart';
 class TopicSection extends StatefulWidget {
   final bool isTeacherMode;
   const TopicSection({
-    super.key,
-    required this.isTeacherMode,
-  });
+    super.key, 
+    required this.isTeacherMode
+    });
 
   @override
   State<TopicSection> createState() => _TopicSectionState();
@@ -78,7 +78,7 @@ class _TopicSectionState extends State<TopicSection> {
               child: Row(
                 children: [
                   SizedBox(width: 16.w),
-                  
+
                   TopicCard(
                     title: "숙제 관련",
                     preview: "선생님 이번 주 숙제 알 수 있을까요?",
@@ -86,7 +86,7 @@ class _TopicSectionState extends State<TopicSection> {
                     isTeacherMode: widget.isTeacherMode,
                   ),
                   SizedBox(width: 16.w),
-                  
+
                   TopicCard(
                     title: "방학 관련",
                     preview: "선생님 ~ 이번 방학 기간이 ... ",
@@ -329,9 +329,9 @@ class InputArea extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             SizedBox(width: 8.w),
-            
+
             GestureDetector(
               onTap: onSendPressed,
               child: Container(
