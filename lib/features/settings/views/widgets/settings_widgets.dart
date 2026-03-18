@@ -180,7 +180,8 @@ class PersonalInfo extends StatelessWidget {
 
 // 로그아웃
 class SignOut extends StatelessWidget {
-  const SignOut({super.key});
+  final VoidCallback? onTap;
+  const SignOut({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +189,7 @@ class SignOut extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.w),
-        onTap: () {},
+        onTap: onTap,
         child: Ink(
           width: 360.w,
           padding: EdgeInsets.all(16.w),

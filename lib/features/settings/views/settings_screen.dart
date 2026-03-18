@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:front_end/common/constants/app_constants.dart';
+import 'package:front_end/features/auth/services/auth_service.dart';
+import 'package:front_end/features/auth/views/login_screen.dart';
 import 'package:front_end/features/settings/views/widgets/settings_widgets.dart';
 import 'package:front_end/features/settings/views/widgets/parent_settings_body.dart';
 import 'package:front_end/features/settings/views/widgets/teacher_settings_body.dart';
@@ -50,7 +52,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                   SizedBox(height: 16.h),
 
-                  SignOut(),
+                  SignOut(
+                    onTap: () async {
+                      await AuthService().logout();
+                      if (!context.mounted) return;
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        (route) => false,
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

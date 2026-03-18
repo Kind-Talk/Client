@@ -54,12 +54,14 @@ class AuthTextField extends StatelessWidget {
   final String hint;
   final IconData icon;
   final bool isPassword;
+  final TextEditingController? controller;
 
   const AuthTextField({
     super.key,
     required this.hint,
     required this.icon,
     required this.isPassword,
+    this.controller,
   });
 
   @override
@@ -70,6 +72,7 @@ class AuthTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: TextField(
+        controller: controller,
         obscureText: isPassword,
         decoration: InputDecoration(
           prefixIcon: Icon(icon, color: Colors.grey[600], size: 19.99.w),

@@ -1,3 +1,4 @@
+import 'package:front_end/features/auth/services/auth_service.dart';
 import 'package:front_end/features/auth/utils/index.dart';
 
 import 'package:flutter/material.dart';
@@ -14,10 +15,40 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isKeepLogin = false;
-  List<dynamic> textFieldInput = [
-    ['이메일', 'example@email.com', CupertinoIcons.envelope, false],
-    ['비밀번호', '••••••••', CupertinoIcons.lock, true],
-  ];
+  bool _isLoading = false;
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _authService = AuthService();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _login() async {
+    setState(() => _isLoading = true);
+    try {
+      await _authService.login(
+        _emailController.text,
+        _passwordController.text,
+      );
+      if (!mounted) return;
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        (route) => false,
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('로그인 실패: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,18 +87,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 입력창 위젯
-                      for (var item in textFieldInput) ...[
-                        AuthLabel(text: item[0]),
-                        SizedBox(height: 8.h),
-                        AuthTextField(
-                          hint: item[1],
-                          icon: item[2],
-                          isPassword: item[3],
-                        ),
+                      // 이메일 입력창
+                      const AuthLabel(text: '이메일'),
+                      SizedBox(height: 8.h),
+                      AuthTextField(
+                        hint: 'example@email.com',
+                        icon: CupertinoIcons.envelope,
+                        isPassword: false,
+                        controller: _emailController,
+                      ),
+                      SizedBox(height: 16.h),
 
-                        SizedBox(height: 16.h),
-                      ],
+                      // 비밀번호 입력창
+                      const AuthLabel(text: '비밀번호'),
+                      SizedBox(height: 8.h),
+                      AuthTextField(
+                        hint: '••••••••',
+                        icon: CupertinoIcons.lock,
+                        isPassword: true,
+                        controller: _passwordController,
+                      ),
+                      SizedBox(height: 16.h),
 
                       SizedBox(height: 15.99.h),
 
@@ -119,16 +159,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // 로그인 버튼
                       AuthSignButton(
-                        text: '로그인',
-                        onTap: () {
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
-                            ),
-                            (route) => false,
-                          );
-                        },
+                        text: _isLoading ? '로그인 중...' : '로그인',
+                        onTap: _isLoading ? () {} : _login,
                       ),
 
                       SizedBox(height: 15.99.h),
