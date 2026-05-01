@@ -1,24 +1,22 @@
-import 'package:front_end/features/auth/services/auth_service.dart';
+import 'package:front_end/features/auth/providers/auth_provider.dart';
 import 'package:front_end/features/auth/utils/index.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   bool isKeepLogin = false;
-  bool _isLoading = false;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _authService = AuthService();
 
   @override
   void dispose() {
@@ -28,30 +26,44 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
-    setState(() => _isLoading = true);
-    try {
-      await _authService.login(
-        _emailController.text,
-        _passwordController.text,
-      );
-      if (!mounted) return;
-      Navigator.pushAndRemoveUntil(
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-        (route) => false,
-      );
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('로그인 실패: $e')),
-      );
-    } finally {
-      if (mounted) setState(() => _isLoading = false);
+      ).showSnackBar(const SnackBar(content: Text('이메일과 비밀번호를 입력해주세요.')));
+      return;
     }
+
+    await ref.read(authProvider.notifier).login(email, password);
+
+    if (!mounted) return;
+
+    final authState = ref.read(authProvider);
+    authState.when(
+      data: (user) {
+        if (user != null) {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            (route) => false,
+          );
+        }
+      },
+      error: (e, _) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('이메일 또는 비밀번호가 올바르지 않습니다.')),
+        );
+      },
+      loading: () {},
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final isLoading = ref.watch(authProvider).isLoading;
+
     return Scaffold(
       backgroundColor: const Color(AppConstants.backgroundColor),
       body: SafeArea(
@@ -83,7 +95,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -159,8 +170,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // 로그인 버튼
                       AuthSignButton(
-                        text: _isLoading ? '로그인 중...' : '로그인',
-                        onTap: _isLoading ? () {} : _login,
+                        text: isLoading ? '로그인 중...' : '로그인',
+                        onTap: isLoading ? () {} : _login,
                       ),
 
                       SizedBox(height: 15.99.h),
@@ -224,7 +235,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
-
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     Navigator.push(
@@ -246,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SizedBox(height: 32.72.h),
 
-                // 하관 약관 텍스트
+                // 하단 약관 텍스트
                 Text(
                   '로그인 하면 서비스 약관 및 개인정보 보호정책\n동의하는 것으로 간주됩니다',
                   textAlign: TextAlign.center,
