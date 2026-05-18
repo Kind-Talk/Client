@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:front_end/features/home/utils/index.dart';
 import 'package:front_end/features/settings/views/widgets/student_info_widgets.dart';
 
@@ -22,15 +19,15 @@ class _StudentInfoScreenState extends State<StudentInfoScreen> {
           children: [
             StudentInfoHeader(),
 
-            SizedBox(height: 16.h,),
+            SizedBox(height: 16.h),
 
             StudentInfoInfoTab(),
 
-            SizedBox(height: 24.h,),
+            SizedBox(height: 24.h),
 
             StudentInfoCard(studentName: "홍시아"),
 
-            SizedBox(height: 24.h,),
+            SizedBox(height: 24.h),
 
             StudentInfoCard(studentName: "홍서준"),
           ],

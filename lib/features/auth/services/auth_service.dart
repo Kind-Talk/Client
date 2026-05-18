@@ -1,33 +1,24 @@
+import 'package:dio/dio.dart';
 import 'package:front_end/common/models/member.dart';
-
-// 로그인한 유저 정보를 앱 전체에서 쓸 수 있도록 저장
-Member? currentUser;
+import 'package:front_end/core/network/api_client.dart';
+import 'package:front_end/core/network/api_endpoints.dart';
 
 class AuthService {
+  final Dio _dio = ApiClient.instance;
+
   // ─── 로그인 ───────────────────────────────────────────────
-  // 실제 API: POST /api/member/login
-  // 지금은 mock 데이터 반환
-  Future<Member> login(String email, String password) async {
-    await Future.delayed(const Duration(milliseconds: 500)); // 네트워크 지연 흉내
-
-    // mock: 이메일에 "teacher"가 들어있으면 선생님으로 처리
-    final isTeacher = email.contains('teacher');
-
-    currentUser = Member(
-      email: email,
-      userName: isTeacher ? '김영희' : '홍길동',
-      nickName: isTeacher ? '영희쌤' : '홍아빠',
-      schoolCode: isTeacher ? 'SCH001' : null,
-      schoolName: isTeacher ? '서울초등학교' : null,
-      role: isTeacher ? Role.teacher : Role.parent,
+  // POST /api/member/login (application/x-www-form-urlencoded)
+  Future<void> login(String email, String password) async {
+    await _dio.post(
+      ApiEndpoints.login,
+      data: 'username=$email&password=$password',
+      options: Options(contentType: 'application/x-www-form-urlencoded'),
     );
-
-    return currentUser!;
   }
 
   // ─── 회원가입 ─────────────────────────────────────────────
-  // 실제 API: POST /api/member/join
-  Future<Member> signup({
+  // POST /api/member/join (application/json)
+  Future<void> signup({
     required String email,
     required String password,
     required String userName,
@@ -35,30 +26,29 @@ class AuthService {
     String? schoolCode,
     required Role role,
   }) async {
-    await Future.delayed(const Duration(milliseconds: 500));
-
-    return Member(
-      email: email,
-      userName: userName,
-      nickName: nickName,
-      schoolCode: schoolCode,
-      role: role,
+    await _dio.post(
+      ApiEndpoints.join,
+      data: {
+        'email': email,
+        'password': password,
+        'userName': userName,
+        'nickName': nickName,
+        'role': role == Role.teacher ? 'TEACHER' : 'PARENT',
+        if (schoolCode != null) 'schoolCode': schoolCode,
+      },
     );
   }
 
   // ─── 내 정보 조회 ─────────────────────────────────────────
-  // 실제 API: GET /api/member/me
+  // GET /api/member/me
   Future<Member> getMe() async {
-    await Future.delayed(const Duration(milliseconds: 300));
-
-    // 로그인된 유저 반환, 없으면 에러
-    if (currentUser == null) throw Exception('로그인이 필요합니다');
-    return currentUser!;
+    final response = await _dio.get(ApiEndpoints.me);
+    return Member.fromJson(response.data as Map<String, dynamic>);
   }
 
   // ─── 로그아웃 ─────────────────────────────────────────────
-  // 실제 API: POST /api/member/logout
+  // POST /api/member/logout
   Future<void> logout() async {
-    currentUser = null;
+    await _dio.post(ApiEndpoints.logout);
   }
 }

@@ -1,12 +1,8 @@
 import 'package:front_end/features/home/utils/index.dart';
-import 'package:flutter/cupertino.dart';
 
 class ParentsHomeBody extends StatelessWidget {
   final bool isTeacherMode;
-  const ParentsHomeBody({
-    super.key,
-    required this.isTeacherMode,
-  });
+  const ParentsHomeBody({super.key, required this.isTeacherMode});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +31,7 @@ class ParentsHomeBody extends StatelessWidget {
                 SizedBox(height: 16.h),
 
                 // 채팅 카드
-                ChatCard(backgColor: 0xFFBFD7C8, fontColor: 0xFFFFFFFF,),
+                ChatCard(backgColor: 0xFFBFD7C8, fontColor: 0xFFFFFFFF),
 
                 SizedBox(height: 16.h),
 
