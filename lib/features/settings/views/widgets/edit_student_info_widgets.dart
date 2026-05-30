@@ -40,6 +40,8 @@ class EditStudentInfoHeader extends StatelessWidget {
             children: [
               SvgPicture.asset('assets/icons/back_arrow.svg', width: 24.h, height: 24.h),
 
+              SizedBox(width: 8.w),
+
               Text(
                 '$studentName 학생 정보',
                 style: TextStyle(
@@ -59,19 +61,12 @@ class EditStudentInfoHeader extends StatelessWidget {
 // 자녀 정보 수정 - 정보
 class EditStudentInfoInfo extends StatelessWidget {
   final String studentName;
-  final int birthYear = 2020;     // 추후 변경 예정
-  final int birthMonth = 1;       // 추후 변경 예정
-  final int birthDay = 1;         // 추후 변경 예정
   final String schoolName;
-  final int grade;
-  final String section = '0'; // 1, 2, ..반이 아닌 다른 형태의 반도 반영하기 위해
-                              // 예) 솔, 은, 참, 향, 단 <- 제 초등학교였음...
 
   const EditStudentInfoInfo({
     super.key,
     required this.studentName,
     required this.schoolName,
-    required this.grade,
   });
 
   @override
@@ -131,19 +126,12 @@ class EditStudentInfoInfo extends StatelessWidget {
                   ],
                 ),
 
-                Text(
-                  "$birthYear년 $birthMonth월 $birthDay일",
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
               ],
             ),
           ),
 
           Text(
-            "$schoolName초등학교 $grade학년 $section반",
+            schoolName,
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
@@ -157,7 +145,10 @@ class EditStudentInfoInfo extends StatelessWidget {
 
 // 저장하기 버튼
 class SaveButton extends StatelessWidget {
-  const SaveButton({super.key});
+  final bool isLoading;
+  final VoidCallback? onTap;
+
+  const SaveButton({super.key, this.isLoading = false, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +156,7 @@ class SaveButton extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.w),
-        onTap: () {},
+        onTap: onTap,
         child: Ink(
           width: 360.w,
           padding: EdgeInsets.all(16.w),
@@ -184,7 +175,7 @@ class SaveButton extends StatelessWidget {
 
           child: Center(
             child: Text(
-              "저장하기",
+              isLoading ? '저장 중...' : '저장하기',
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w500,

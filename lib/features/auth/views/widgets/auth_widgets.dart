@@ -155,7 +155,7 @@ class AuthSocialButton extends StatelessWidget {
 // 로그인, 회원가입 버튼
 class AuthSignButton extends StatelessWidget {
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const AuthSignButton({super.key, required this.text, required this.onTap});
 

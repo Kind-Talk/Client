@@ -171,7 +171,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       // 로그인 버튼
                       AuthSignButton(
                         text: isLoading ? '로그인 중...' : '로그인',
-                        onTap: isLoading ? () {} : _login,
+                        onTap: isLoading ? null : _login,
                       ),
 
                       SizedBox(height: 15.99.h),

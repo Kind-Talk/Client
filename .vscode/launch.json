@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter (iOS 26.4 Simulator)",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "853C0B46-717A-4AD8-B506-5192C700E5FC"
+    }
+  ]
+}

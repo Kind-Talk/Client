@@ -94,7 +94,9 @@ class SettingHeader extends StatelessWidget {
 
 // 개인 설정 변경
 class PersonalInfo extends StatelessWidget {
-  const PersonalInfo({super.key});
+  final String userName;
+
+  const PersonalInfo({super.key, required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +140,7 @@ class PersonalInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '홍길동',
+                        userName,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,

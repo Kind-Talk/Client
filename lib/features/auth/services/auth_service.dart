@@ -11,7 +11,7 @@ class AuthService {
   Future<void> login(String email, String password) async {
     await _dio.post(
       ApiEndpoints.login,
-      data: 'username=$email&password=$password',
+      data: 'username=${Uri.encodeComponent(email)}&password=${Uri.encodeComponent(password)}',
       options: Options(contentType: 'application/x-www-form-urlencoded'),
     );
   }
@@ -44,6 +44,18 @@ class AuthService {
   Future<Member> getMe() async {
     final response = await _dio.get(ApiEndpoints.me);
     return Member.fromJson(response.data as Map<String, dynamic>);
+  }
+
+  // ─── 내 정보 수정 ─────────────────────────────────────────
+  // PATCH /api/member/me
+  Future<void> updateMe({
+    required String userName,
+    required String nickName,
+  }) async {
+    await _dio.patch(
+      ApiEndpoints.updateMe,
+      data: {'userName': userName, 'nickName': nickName},
+    );
   }
 
   // ─── 로그아웃 ─────────────────────────────────────────────
