@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:front_end/features/settings/views/widgets/search_school_widgets.dart';
+import 'package:front_end/features/settings/models/school_model.dart';
 
 // ======== STATELESS WIDGETS ========
 // 자녀 추가 - 헤더
@@ -122,7 +122,9 @@ class AddStudentInfoTab extends StatelessWidget {
 
 // 이름 정보 입력
 class GetName extends StatelessWidget {
-  const GetName({super.key});
+  final TextEditingController controller;
+
+  const GetName({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +149,7 @@ class GetName extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: 20.h, // Same value with height => to make it perfect square
+                width: 20.h,
                 height: 20.h,
                 padding: EdgeInsets.all(2.h),
                 decoration: BoxDecoration(),
@@ -166,15 +168,16 @@ class GetName extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 8.h,),
+          SizedBox(height: 8.h),
 
           SizedBox(
             width: 320.w,
             height: 36.h,
 
             child: TextField(
+              controller: controller,
               decoration: InputDecoration(
-                labelText: '자녀의 이름을 입력하세요',
+                hintText: '자녀의 이름을 입력하세요',
 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.w),
@@ -182,7 +185,7 @@ class GetName extends StatelessWidget {
                 ),
 
                 filled: true,
-                fillColor: Color(0xF3F3F5FF),
+                fillColor: Color(0xFFF3F3F5),
               ),
             ),
           ),
@@ -280,7 +283,10 @@ class GetBirthDate extends StatelessWidget {
 
 // 학교 정보 입력
 class GetSchool extends StatelessWidget {
-  const GetSchool({super.key});
+  final SchoolModel? selectedSchool;
+  final VoidCallback onTap;
+
+  const GetSchool({super.key, required this.onTap, this.selectedSchool});
 
   @override
   Widget build(BuildContext context) {
@@ -288,9 +294,7 @@ class GetSchool extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        onTap: () {
-          showSchoolSearchTab(context);
-        },
+        onTap: onTap,
         child: Ink(
           width: 360.w,
           padding: EdgeInsets.all(16.w),
@@ -308,11 +312,12 @@ class GetSchool extends StatelessWidget {
           ),
 
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Container(
-                    width: 20.h, // Same value with height => to make it perfect square
+                    width: 20.h,
                     height: 20.h,
                     padding: EdgeInsets.all(2.h),
                     decoration: BoxDecoration(),
@@ -331,7 +336,15 @@ class GetSchool extends StatelessWidget {
                 ],
               ),
 
-              Text("학교 이름을 검색하세요"),
+              SizedBox(height: 4.h),
+
+              Text(
+                selectedSchool?.name ?? '학교 이름을 검색하세요',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: selectedSchool != null ? Color(0xFF0A0A0A) : Colors.grey,
+                ),
+              ),
             ],
           ),
         ),
@@ -342,7 +355,10 @@ class GetSchool extends StatelessWidget {
 
 // 자녀 추가하기 버튼
 class AddStudentButton extends StatelessWidget {
-  const AddStudentButton({super.key});
+  final bool isLoading;
+  final VoidCallback? onTap;
+
+  const AddStudentButton({super.key, this.isLoading = false, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -350,7 +366,7 @@ class AddStudentButton extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.w),
-        onTap: () {},
+        onTap: onTap,
         child: Ink(
           width: 360.w,
           padding: EdgeInsets.all(16.w),
@@ -369,7 +385,7 @@ class AddStudentButton extends StatelessWidget {
 
           child: Center(
             child: Text(
-              "자녀 추가하기",
+              isLoading ? '추가 중...' : '자녀 추가하기',
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
@@ -385,7 +401,9 @@ class AddStudentButton extends StatelessWidget {
 
 // 취소 버튼
 class CancelButton extends StatelessWidget {
-  const CancelButton({super.key});
+  final VoidCallback? onTap;
+
+  const CancelButton({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -393,7 +411,7 @@ class CancelButton extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.w),
-        onTap: () {},
+        onTap: onTap ?? () => Navigator.pop(context),
         child: Ink(
           width: 360.h,
           padding: EdgeInsets.all(16.w),

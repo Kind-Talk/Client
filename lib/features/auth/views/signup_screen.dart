@@ -213,7 +213,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       // 회원가입 버튼
                       AuthSignButton(
                         text: isLoading ? '처리 중...' : '회원가입',
-                        onTap: isLoading ? () {} : _signup,
+                        onTap: isLoading ? null : _signup,
                       ),
                     ],
                   ),

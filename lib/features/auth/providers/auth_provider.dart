@@ -51,6 +51,18 @@ class AuthNotifier extends AsyncNotifier<Member?> {
     });
   }
 
+  Future<void> updateMe({
+    required String userName,
+    required String nickName,
+  }) async {
+    // 로컬 로딩 상태로 관리하므로 AsyncLoading 설정 생략
+    final result = await AsyncValue.guard(() async {
+      await _service.updateMe(userName: userName, nickName: nickName);
+      return await _service.getMe();
+    });
+    state = result;
+  }
+
   Future<void> logout() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
